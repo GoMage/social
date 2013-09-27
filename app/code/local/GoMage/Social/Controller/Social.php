@@ -78,7 +78,7 @@ abstract class GoMage_Social_Controller_Social extends Mage_Core_Controller_Fron
     	return $url;
 	}
 	
-	protected function _redirectUrl($url)
+	protected function _redirectUrl($url='')
     {
     	return parent::_redirectUrl($this->_getRedirectUrl($url));
     }
