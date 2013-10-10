@@ -78,3 +78,14 @@ html .glc-rtl.glc-login-and-paypal .gs-login-checkout{
   padding: 5px 20px;
   text-align: left;
   }
+.gs-popup-content {
+
+    position: absolute;
+    margin-left: 60%;
+    margin-top: 10%;
+    background: #ffffff;
+
+    text-align: center;
+    z-index: 999;
+
+}

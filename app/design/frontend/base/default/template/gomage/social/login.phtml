@@ -74,8 +74,19 @@
 		</a>
 	</li>
 <?php break; ?>
+                <?php case (GoMage_Social_Model_Type::TWITTER): ?>
+                    <li <?php if ($key == $last_key): ?>class="last"<?php endif; ?>>
+                        <a href="<?php echo $this->getUrl('gomage_social/twitter/login', array('_secure' => true, 'gs_url' => Mage::helper('core')->urlEncode(Mage::helper('core/url')->getCurrentUrl())));  ?>" title="<?php echo $this->getText('twitter') ?>">
+                            <?php if (($image = $this->getImage('twitter')) && ($this->getLoginType('twitter') == GoMage_Social_Model_Adminhtml_System_Config_Source_Login_Type::IMAGE)): ?>
+                                <img src="<?php echo $image ?>" alt="<?php echo $this->getText('twitter') ?>" />
+                            <?php else: ?>
+                                <?php echo $this->getText('twitter') ?>
+                            <?php endif; ?>
+                        </a>
+                    </li>
+                    <?php break; ?>
 <?php endswitch; ?>
-				
+
 		<?php endforeach; ?>
 	</ul>
 	<?php if ($this->getUsedList()): ?></li><?php endif; ?>

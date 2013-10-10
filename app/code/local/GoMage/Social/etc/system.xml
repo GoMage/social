@@ -359,7 +359,96 @@
 							<show_in_store>1</show_in_store>
 						</order>
 					</fields>
-				</google>							
+				</google>
+                <twitter translate="label">
+                    <label>Twitter</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable>
+                            <label>Enable</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable>
+                        <id>
+                            <label>Application Api</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </id>
+                        <secret>
+                            <label>Application Secret</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </secret>
+                        <fast_links_type>
+                            <label>Fast Links Login Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>gomage_social/adminhtml_system_config_source_login_type</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fast_links_type>
+                        <login_type>
+                            <label>Login Page Login Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>gomage_social/adminhtml_system_config_source_login_type</source_model>
+                            <sort_order>43</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </login_type>
+                        <checkout_type>
+                            <label>Checkout Login Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>gomage_social/adminhtml_system_config_source_login_type</source_model>
+                            <sort_order>46</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </checkout_type>
+                        <image>
+                            <label>Login Image</label>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">gomage/social</upload_dir>
+                            <base_url type="media" scope_info="1">gomage/social</base_url>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </image>
+                        <text>
+                            <label>Login Text</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </text>
+                        <order>
+                            <label>Sort Order</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </order>
+                    </fields>
+                </twitter>
 			</groups>
 		</gomage_social>
         <gomage_notification>

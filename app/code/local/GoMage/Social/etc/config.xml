@@ -75,6 +75,11 @@
 					</entity>
 				</entities>
 			</gomage_social_mysql4>
+            <customer>
+                <rewrite>
+                    <session>GoMage_Social_Model_Session</session>
+                </rewrite>
+            </customer>
 		</models>
 		<resources>
 			<gomage_social_setup>

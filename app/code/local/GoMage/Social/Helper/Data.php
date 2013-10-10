@@ -24,7 +24,10 @@ class GoMage_Social_Helper_Data extends Mage_Core_Helper_Abstract {
 	public function isLIActive() {
 		return Mage::getStoreConfig('gomage_social/linkedin/enable') && Mage::getStoreConfig('gomage_social/linkedin/id') && Mage::getStoreConfig('gomage_social/linkedin/secret');
 	}
-	
+
+    public function isTWActive() {
+        return Mage::getStoreConfig('gomage_social/twitter/enable') && Mage::getStoreConfig('gomage_social/twitter/id') && Mage::getStoreConfig('gomage_social/twitter/secret');
+    }
 	public function isActive() {
 		return Mage::getStoreConfig('gomage_social/general/enable') && ($this->isFBActive() || $this->isGActive() || $this->isLIActive());
 	}
@@ -50,7 +53,10 @@ class GoMage_Social_Helper_Data extends Mage_Core_Helper_Abstract {
 		if ($this->isLIActive() && in_array(GoMage_Social_Model_Type::LINKEDIN, $selected_services)) {
 			$result[GoMage_Social_Model_Type::LINKEDIN] = Mage::getStoreConfig('gomage_social/linkedin/order');
 		}
-		
+        if ($this->isTWActive() && in_array(GoMage_Social_Model_Type::TWITTER, $selected_services)) {
+            $result[GoMage_Social_Model_Type::TWITTER] = Mage::getStoreConfig('gomage_social/twitter/order');
+        }
+
 		natcasesort($result);
 		
 		return $result;

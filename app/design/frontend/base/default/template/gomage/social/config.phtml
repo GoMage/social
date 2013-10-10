@@ -117,4 +117,29 @@
       })();
     //]]>
 	</script>
-<?php endif; ?>   
+<?php endif; ?>
+
+    <script type="text/javascript">
+        var GomageSicialClass = new GomageSicialClass ;
+    </script>
+
+<?php if(Mage::getSingleton('core/session')->getProfile()->url):?>
+
+    <div class="gs-popup-content " id="gs-popup-content" >
+        <a onclick="GomageSicialClass.hideBlockEmail();" href="#" class="close">✕</a>
+        <ul class="form-list">
+            <li>
+                <label for="email" class="required"><em>*</em>Email Address</label>
+                <div class="input-box">
+                    <input type="text" name="email" value="" id="email" class="input-text required-entry validate-email" title="Email Address">
+                </div>
+            </li>
+            <div class="actions">
+                <button type="submit" class="button" onclick="GomageSicialClass.sendEmail($('email').value,'<?php echo Mage::getSingleton('core/session')->getProfile()->url;?>')"><span><span>Login</span></span></button>
+                <span style="display: none;" id="social-please-wait" class="please-wait">
+            <img class="v-middle" title="Loading next step..." alt="Loading next step..." src="http://magento.ua/skin/frontend/default/default/images/opc-ajax-loader.gif">  </span>
+            </div>
+            <div id="message" style="color: red;"></div>
+        </ul>
+    </div>
+<?php endif; ?>
