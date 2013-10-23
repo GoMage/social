@@ -62,6 +62,17 @@
 				<class>GoMage_Social_Block</class>
 			</gomage_social>
 		</blocks>
+        <events>
+            <customer_login>
+                <observers>
+                    <gomage_social_customer_login>
+                        <type>singleton</type>
+                        <class>gomage_social/observer</class>
+                        <method>GSCustomerLoggedIn</method>
+                    </gomage_social_customer_login>
+                </observers>
+            </customer_login>
+        </events>
 		<models>
 			<gomage_social>
 				<class>GoMage_Social_Model</class>
@@ -75,11 +86,6 @@
 					</entity>
 				</entities>
 			</gomage_social_mysql4>
-            <customer>
-                <rewrite>
-                    <session>GoMage_Social_Model_Session</session>
-                </rewrite>
-            </customer>
 		</models>
 		<resources>
 			<gomage_social_setup>

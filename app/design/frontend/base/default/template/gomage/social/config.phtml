@@ -123,7 +123,7 @@
         var GomageSicialClass = new GomageSicialClass ;
     </script>
 
-<?php if(Mage::getSingleton('core/session')->getProfile()->url):?>
+<?php if(Mage::getSingleton('core/session')->getGsProfile()->url):?>
 
     <div class="gs-popup-content " id="gs-popup-content" >
         <a onclick="GomageSicialClass.hideBlockEmail();" href="#" class="close">✕</a>
@@ -135,11 +135,11 @@
                 </div>
             </li>
             <div class="actions">
-                <button type="submit" class="button" onclick="GomageSicialClass.sendEmail($('email').value,'<?php echo Mage::getSingleton('core/session')->getProfile()->url;?>')"><span><span>Login</span></span></button>
+                <button type="submit" class="button" onclick="GomageSicialClass.sendEmail($('email').value,'<?php echo Mage::getSingleton('core/session')->getGsProfile()->url;?>')"><span><span>Login</span></span></button>
                 <span style="display: none;" id="social-please-wait" class="please-wait">
-            <img class="v-middle" title="Loading next step..." alt="Loading next step..." src="http://magento.ua/skin/frontend/default/default/images/opc-ajax-loader.gif">  </span>
+            <img class="v-middle" title="Loading next step..." alt="Loading next step..." src="/skin/frontend/default/default/images/opc-ajax-loader.gif">  </span>
             </div>
-            <div id="message" style="color: red;"></div>
+            <div id="gsc_message" style="color: red;"></div>
         </ul>
     </div>
 <?php endif; ?>

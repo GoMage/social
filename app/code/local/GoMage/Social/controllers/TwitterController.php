@@ -34,11 +34,6 @@ class GoMage_Social_TwitterController extends GoMage_Social_Controller_SocialNoM
             $callback_params['gs_url'] = $this->getRequest()->getParam('gs_url');
         }
 
-        $inchooSwitch = new Mage_Core_Model_Config();
-        if(!Mage::getStoreConfig('customer/create_account/confirm')){
-            $inchooSwitch ->saveConfig('customer/create_account/confirm', "1", 'default', 0);
-            $this->_confirm = false;
-        }
 
         $callback_url = Mage::getUrl('gomage_social/twitter/callback', $callback_params);
         $request_token = $connection->getRequestToken($callback_url);
@@ -60,7 +55,7 @@ class GoMage_Social_TwitterController extends GoMage_Social_Controller_SocialNoM
     }
 
     public function callbackAction(){
-        $inchooSwitch = new Mage_Core_Model_Config();
+
         $oauth_token = $this->getRequest()->getParam('oauth_token');
         $oauth_verifier = $this->getRequest()->getParam('oauth_verifier');
 
@@ -113,9 +108,6 @@ class GoMage_Social_TwitterController extends GoMage_Social_Controller_SocialNoM
                         if ($customer && $customer->getId()){
                             if (!$customer->getConfirmation()) {
                             $this->getSession()->loginById($customer->getId());
-                                if($this->_confirm == false){
-                                    $inchooSwitch ->saveConfig('customer/create_account/confirm', "0", 'default', 0);
-                                }
                             }
 
                         }
@@ -123,7 +115,7 @@ class GoMage_Social_TwitterController extends GoMage_Social_Controller_SocialNoM
                 }else{
                     $profile->url = Mage::getUrl('gomage_social/twitter/checkingEmail');
                     $profile->type_id =  GoMage_Social_Model_Type::TWITTER;
-                    Mage::getSingleton('core/session')->setProfile($profile);
+                    Mage::getSingleton('core/session')->setGsProfile($profile);
                 }
 
             }
@@ -133,18 +125,17 @@ class GoMage_Social_TwitterController extends GoMage_Social_Controller_SocialNoM
     }
 
     public function checkingEmailAction(){
-        $inchooSwitch = new Mage_Core_Model_Config();
-        $message  = array();
+           $message  = array();
        if($customer_email = $this->getRequest()->getParam('email')){
            $customer = Mage::getModel("customer/customer");
            $customer->setWebsiteId(Mage::app()->getWebsite()->getId());
            $customer->loadByEmail($customer_email);
-           if($profile = Mage::getSingleton('core/session')->getProfile()){
+           if($profile = Mage::getSingleton('core/session')->getGsProfile()){
                if($customer->getId()){
                    $message['redirect'] = '/customer/account/login/';
                    Mage::getSingleton('core/session')->addNotice('There is already an account with this email address. We suggest using the standard login form.');
                    $profile->url = null;
-                   Mage::getSingleton('core/session')->setProfile($profile);
+                   Mage::getSingleton('core/session')->setGsProfile($profile);
                }else{
                        $social_collection = Mage::getModel('gomage_social/entity')
                            ->getCollection()
@@ -178,13 +169,14 @@ class GoMage_Social_TwitterController extends GoMage_Social_Controller_SocialNoM
                            }
 
                            $name = explode(" ", $profile->name);
-
                            $profile->email = $customer_email;
                            $profile->first_name =  $name[0];
-                           $profile->last_name = $name[1];
-                           if(empty($profile->last_name)){
+                            if(isset($name[1])){
+                               $profile->last_name = $name[1];
+                           }else{
                                $profile->last_name = $name[0];
                            }
+
 
 
                            $customer->loadByEmail($profile->email);
@@ -195,21 +187,17 @@ class GoMage_Social_TwitterController extends GoMage_Social_Controller_SocialNoM
 
                            if ($customer && $customer->getId()){
                                $this->createSocial($profile->id, $customer->getId());
-
+                               $customer->setConfirmation(true);
                                if (!$customer->getConfirmation()) {
                               $this->getSession()->loginById($customer->getId());
                                }
                            }
-                           Mage::getSingleton('core/session')->setProfile(null);
+                           Mage::getSingleton('core/session')->unsGsProfile();
                        }
 
                }
            }
        }
-
-        if($this->_confirm == false){
-            $inchooSwitch ->saveConfig('customer/create_account/confirm', "0", 'default', 0);
-        }
 
         $message['success'] = true;
         return $this->getResponse()->setBody(Zend_Json::encode($message));

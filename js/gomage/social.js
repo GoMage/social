@@ -1,15 +1,13 @@
 /**
- * GoMage.com
- * 
- * GoMage Feed Pro
- * 
- * @category Extension
- * @copyright Copyright (c) 2010-2013 GoMage.com (http://www.gomage.com)
- * @author GoMage.com
- * @license http://www.gomage.com/licensing Single domain license
+ * GoMage Social Connector Extension
+ *
+ * @category     Extension
+ * @copyright    Copyright (c) 2013 GoMage (http://www.gomage.com)
+ * @author       GoMage
+ * @license      http://www.gomage.com/license-agreement/  Single domain license
  * @terms of use http://www.gomage.com/terms-of-use
- * @version Release: 1.1
- * @since Class available since Release 1.1
+ * @version      Release: 1.1
+ * @since        Class available since Release 1.1
  */
 
 GomageSicialClass = Class.create({
@@ -17,11 +15,11 @@ GomageSicialClass = Class.create({
     sendEmail : function(email, url) {
         $('social-please-wait').show();
         if(this.isValidEmail(email) == false){
-            if($('message')){
-                $('message').innerHTML = 'Please enter a valid email address. For example johndoe@domain.com.';
+            if($('gsc_message')){
+                $('gsc_message').innerHTML = 'Please enter a valid email address. For example johndoe@domain.com.';
             } $('social-please-wait').hide();
         }else{
-            $('message').innerHTML = '';
+            $('gsc_message').innerHTML = '';
             var params = {
                 'email' : email
             };
@@ -34,7 +32,7 @@ GomageSicialClass = Class.create({
                     var response = eval('(' + (transport.responseText || false)
                         + ')');
                     if(response.error){
-                        $('message').innerHTML = response.error;
+                        $('gsc_message').innerHTML = response.error;
                     }
                     if(response.success){
                         $('gs-popup-content').hide();
