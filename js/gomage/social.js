@@ -57,9 +57,21 @@ GomageSicialClass = Class.create({
         return Validation.get('IsEmpty').test(v) || /^([a-z0-9,!\#\$%&'\*\+\/=\?\^_`\{\|\}~-]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z0-9,!\#\$%&'\*\+\/=\?\^_`\{\|\}~-]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*@([a-z0-9-]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z0-9-]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*\.(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]){2,})$/i.test(v)
     },
 
-    hideBlockEmail : function(){
-        $('gs-popup-content').hide();
+    createWindow : function (title,width,height)
+    {
+    win = new Window({
+    className:'magento',
+    title: title,
+    width:width,
+    height:height,
+    minimizable:false,
+    maximizable:false,
+    showEffectOptions:{duration:0.4},
+    hideEffectOptions:{duration:0.4}});
+
+     return win;
     }
+
 
 
 

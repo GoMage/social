@@ -125,8 +125,7 @@
 
 <?php if(Mage::getSingleton('core/session')->getGsProfile()->url):?>
 
-    <div class="gs-popup-content " id="gs-popup-content" >
-        <a onclick="GomageSicialClass.hideBlockEmail();" href="#" class="close">✕</a>
+    <div id="gs-popup-content" style="display:none">
         <ul class="form-list">
             <li>
                 <label for="email" class="required"><em>*</em>Email Address</label>
@@ -138,8 +137,16 @@
                 <button type="submit" class="button" onclick="GomageSicialClass.sendEmail($('email').value,'<?php echo Mage::getSingleton('core/session')->getGsProfile()->url;?>')"><span><span>Login</span></span></button>
                 <span style="display: none;" id="social-please-wait" class="please-wait">
             <img class="v-middle" title="Loading next step..." alt="Loading next step..." src="/skin/frontend/default/default/images/opc-ajax-loader.gif">  </span>
+                <div id="gsc_message" ></div>
             </div>
-            <div id="gsc_message" style="color: red;"></div>
+
         </ul>
     </div>
+
+
+    <script type="text/javascript">
+        win =  GomageSicialClass.createWindow("<?php echo __('Enter your email'); ?>", 300, 100);
+        win.getContent().update($('gs-popup-content').innerHTML);
+        win.showCenter();
+    </script>
 <?php endif; ?>

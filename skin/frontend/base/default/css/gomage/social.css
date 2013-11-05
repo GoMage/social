@@ -89,3 +89,6 @@ html .glc-rtl.glc-login-and-paypal .gs-login-checkout{
     z-index: 999;
 
 }
+#gsc_message{
+    color: red;
+}
