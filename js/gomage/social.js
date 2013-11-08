@@ -23,7 +23,18 @@ GomageSicialClass = Class.create({
             this.gs_overlay.id = 'gomage-social-overlay';
             document.body.appendChild(this.gs_overlay);
 
+
             var offsets = element.cumulativeOffset();
+
+           window.onload = function(){
+               var wrapper = GomageSicialClass.elementsByClass('wrapper');
+               if(wrapper){
+               GomageSicialClass.gs_overlay.setStyle({
+                   'height': wrapper.getHeight() + 'px'
+               });
+               }
+           }
+
             this.gs_overlay.setStyle({
                 'top': offsets[1] + 'px',
                 'left': offsets[0] + 'px',
@@ -32,7 +43,8 @@ GomageSicialClass = Class.create({
                 'position': 'absolute',
                 'display': 'none',
                 'zIndex': '2000'
-            });
+
+    });
         }
 
 
@@ -84,6 +96,16 @@ GomageSicialClass = Class.create({
    return id;
 
 },
+
+    elementsByClass: function(name) {
+        var elements = window.parent.document.getElementsByClassName(name);
+        for (i = 0; i < elements.length; i++){
+            obj = elements[i];
+            break;
+        }
+        return obj;
+
+    },
 
     createWindow : function (title,width,height)
     {
