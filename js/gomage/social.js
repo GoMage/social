@@ -22,19 +22,17 @@ GomageSicialClass = Class.create({
             this.gs_overlay = $(document.createElement('div'));
             this.gs_overlay.id = 'gomage-social-overlay';
             document.body.appendChild(this.gs_overlay);
-
-
             var offsets = element.cumulativeOffset();
-
-           window.onload = function(){
-               var wrapper = GomageSicialClass.elementsByClass('wrapper');
-               if(wrapper){
-               GomageSicialClass.gs_overlay.setStyle({
-                   'height': wrapper.getHeight() + 'px'
-               });
+               window.onload = function(){
+                   var wrapper = GomageSicialClass.elementsByClass('wrapper');
+                   if(wrapper){
+                       if(screen.height <  wrapper.getHeight()){
+                           GomageSicialClass.gs_overlay.setStyle({
+                               'height': wrapper.getHeight() + 'px'
+                           });
+                       }
+                   }
                }
-           }
-
             this.gs_overlay.setStyle({
                 'top': offsets[1] + 'px',
                 'left': offsets[0] + 'px',
@@ -44,11 +42,9 @@ GomageSicialClass = Class.create({
                 'display': 'none',
                 'zIndex': '2000'
 
-    });
-        }
-
-
-        },
+             });
+         }
+    },
 
 
     sendEmail : function(email, url) {
@@ -104,7 +100,6 @@ GomageSicialClass = Class.create({
             break;
         }
         return obj;
-
     },
 
     createWindow : function (title,width,height)
