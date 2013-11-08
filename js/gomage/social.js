@@ -6,20 +6,46 @@
  * @author       GoMage
  * @license      http://www.gomage.com/license-agreement/  Single domain license
  * @terms of use http://www.gomage.com/terms-of-use
- * @version      Release: 1.1
- * @since        Class available since Release 1.1
+ * @version      Release: 1.1.0
+ * @since        Class available since Release 1.1.0
  */
 
 GomageSicialClass = Class.create({
 
+    config: null,
+    gs_overlay: null,
+
+    initialize: function (config) {
+        this.gs_overlay = $('gomage-social-overlay');
+        if (!this.gs_overlay) {
+            var element = $$('body')[0];
+            this.gs_overlay = $(document.createElement('div'));
+            this.gs_overlay.id = 'gomage-social-overlay';
+            document.body.appendChild(this.gs_overlay);
+
+            var offsets = element.cumulativeOffset();
+            this.gs_overlay.setStyle({
+                'top': offsets[1] + 'px',
+                'left': offsets[0] + 'px',
+                'width': element.offsetWidth + 'px',
+                'height': screen.height + 'px',
+                'position': 'absolute',
+                'display': 'none',
+                'zIndex': '2000'
+            });
+        }
+
+
+        },
+
+
     sendEmail : function(email, url) {
-        $('social-please-wait').show();
-        if(this.isValidEmail(email) == false){
-            if($('gsc_message')){
-                $('gsc_message').innerHTML = 'Please enter a valid email address. For example johndoe@domain.com.';
-            } $('social-please-wait').hide();
-        }else{
-            $('gsc_message').innerHTML = '';
+
+        var gsForm = new VarienForm('gs-validate-detail', true);
+
+        if (gsForm.validator && gsForm.validator.validate()) {
+            $('gs-please-wait').show();
+            $('gs-message').innerHTML = '';
             var params = {
                 'email' : email
             };
@@ -32,7 +58,7 @@ GomageSicialClass = Class.create({
                     var response = eval('(' + (transport.responseText || false)
                         + ')');
                     if(response.error){
-                        $('gsc_message').innerHTML = response.error;
+                        $('gs-message').innerHTML = response.error;
                     }
                     if(response.success){
                         $('gs-popup-content').hide();
@@ -41,7 +67,7 @@ GomageSicialClass = Class.create({
                     if(response.redirect){
                         window.location.replace(response.redirect);
                     }
-                    $('social-please-wait').hide();
+                    $('gs-please-wait').hide();
 
                 }
             });
@@ -49,13 +75,15 @@ GomageSicialClass = Class.create({
         }
     },
 
-    isValidEmail : function (v)
-    {
-        if(v == ''){
-            return false;
-        }
-        return Validation.get('IsEmpty').test(v) || /^([a-z0-9,!\#\$%&'\*\+\/=\?\^_`\{\|\}~-]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z0-9,!\#\$%&'\*\+\/=\?\^_`\{\|\}~-]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*@([a-z0-9-]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z0-9-]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*\.(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]){2,})$/i.test(v)
-    },
+     id_window: function() {
+    var elements = window.parent.document.getElementsByClassName('dialog');
+    for (i = 0; i < elements.length; i++){
+        id = elements[i].firstChild.id;
+        break;
+    }
+   return id;
+
+},
 
     createWindow : function (title,width,height)
     {
@@ -64,11 +92,16 @@ GomageSicialClass = Class.create({
     title: title,
     width:width,
     height:height,
-    minimizable:false,
-    maximizable:false,
-    showEffectOptions:{duration:0.4},
-    hideEffectOptions:{duration:0.4}});
-
+        maximizable:false,
+        minimizable:false,
+        resizable:false,
+        draggable:false,
+        showEffect:Effect.BlindDown,
+        hideEffect:Effect.BlindUp,
+        showEffectOptions: {duration: 0.4},
+        hideEffectOptions: {duration: 0.4}}
+    );
+     win.setZIndex(5000);
      return win;
     }
 

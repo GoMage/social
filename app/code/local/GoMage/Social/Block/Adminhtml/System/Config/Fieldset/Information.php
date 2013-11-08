@@ -7,8 +7,8 @@
  * @author       GoMage
  * @license      http://www.gomage.com/license-agreement/  Single domain license
  * @terms of use http://www.gomage.com/terms-of-use
- * @version      Release: 1.0
- * @since        Class available since Release 1.0
+ * @version      Release: 1.1.0
+ * @since        Class available since Release 1.0.0
  */
 
 class GoMage_Social_Block_Adminhtml_System_Config_Fieldset_Information extends Mage_Adminhtml_Block_System_Config_Form_Fieldset {

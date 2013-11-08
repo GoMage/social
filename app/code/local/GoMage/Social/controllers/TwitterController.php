@@ -7,8 +7,8 @@
  * @author       GoMage
  * @license      http://www.gomage.com/license-agreement/  Single domain license
  * @terms of use http://www.gomage.com/terms-of-use
- * @version      Release: 1.0
- * @since        Class available since Release 1.0
+ * @version      Release: 1.1.0
+ * @since        Class available since Release 1.1.0
  */
 
 require_once (Mage::getBaseDir('lib') . DS . 'GoMage' . DS . 'Twitter' . DS . 'tumblroauth.php');
@@ -113,7 +113,7 @@ class GoMage_Social_TwitterController extends GoMage_Social_Controller_SocialNoM
                         }
                       }
                 }else{
-                    $profile->url = Mage::getUrl('gomage_social/twitter/checkingEmail');
+                    $profile->url = Mage::getUrl('gomage_social/twitter/checkEmail');
                     $profile->type_id =  GoMage_Social_Model_Type::TWITTER;
                     Mage::getSingleton('core/session')->setGsProfile($profile);
                 }
@@ -124,82 +124,5 @@ class GoMage_Social_TwitterController extends GoMage_Social_Controller_SocialNoM
       return $this->_redirectUrl();
     }
 
-    public function checkingEmailAction(){
-           $message  = array();
-       if($customer_email = $this->getRequest()->getParam('email')){
-           $customer = Mage::getModel("customer/customer");
-           $customer->setWebsiteId(Mage::app()->getWebsite()->getId());
-           $customer->loadByEmail($customer_email);
-           if($profile = Mage::getSingleton('core/session')->getGsProfile()){
-               if($customer->getId()){
-                   $message['redirect'] = '/customer/account/login/';
-                   Mage::getSingleton('core/session')->addNotice('There is already an account with this email address. We suggest using the standard login form.');
-                   $profile->url = null;
-                   Mage::getSingleton('core/session')->setGsProfile($profile);
-               }else{
-                       $social_collection = Mage::getModel('gomage_social/entity')
-                           ->getCollection()
-                           ->addFieldToFilter('social_id', $profile->id)
-                           ->addFieldToFilter('type_id', GoMage_Social_Model_Type::TWITTER);
 
-                       if(Mage::getSingleton('customer/config_share')->isWebsiteScope()) {
-                           $social_collection->addFieldToFilter('website_id', Mage::app()->getWebsite()->getId());
-                       }
-                       $social = $social_collection->getFirstItem();
-
-                       $customer = null;
-
-                       if ($social && $social->getId()){
-                           $customer = Mage::getModel('customer/customer');
-                           if (Mage::getSingleton('customer/config_share')->isWebsiteScope()) {
-                               $customer->setWebsiteId(Mage::app()->getWebsite()->getId());
-                           }
-                           $customer->load($social->getData('customer_id'));
-                       }
-
-                       if ($customer && $customer->getId()){
-                           if (!$customer->getConfirmation()) {
-                        $this->getSession()->loginById($customer->getId());
-                           }
-                       } else {
-
-                           $customer = Mage::getModel('customer/customer');
-                           if (Mage::getSingleton('customer/config_share')->isWebsiteScope()) {
-                               $customer->setWebsiteId(Mage::app()->getWebsite()->getId());
-                           }
-
-                           $name = explode(" ", $profile->name);
-                           $profile->email = $customer_email;
-                           $profile->first_name =  $name[0];
-                            if(isset($name[1])){
-                               $profile->last_name = $name[1];
-                           }else{
-                               $profile->last_name = $name[0];
-                           }
-
-
-
-                           $customer->loadByEmail($profile->email);
-
-                           if (!$customer->getId()){
-                               $customer = $this->createCustomer($profile);
-                           }
-
-                           if ($customer && $customer->getId()){
-                               $this->createSocial($profile->id, $customer->getId());
-                               $customer->setConfirmation(true);
-                               if (!$customer->getConfirmation()) {
-                              $this->getSession()->loginById($customer->getId());
-                               }
-                           }
-                           Mage::getSingleton('core/session')->unsGsProfile();
-                       }
-
-               }
-           }
-       }
-
-        $message['success'] = true;
-        return $this->getResponse()->setBody(Zend_Json::encode($message));
-    }
 }

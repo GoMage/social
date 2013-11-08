@@ -7,8 +7,8 @@
  * @author       GoMage
  * @license      http://www.gomage.com/license-agreement/  Single domain license
  * @terms of use http://www.gomage.com/terms-of-use
- * @version      Release: 1.0
- * @since        Class available since Release 1.0
+ * @version      Release: 1.1.0
+ * @since        Class available since Release 1.0.0
  */
 
 class GoMage_Social_Helper_Data extends Mage_Core_Helper_Abstract {
@@ -29,7 +29,7 @@ class GoMage_Social_Helper_Data extends Mage_Core_Helper_Abstract {
         return Mage::getStoreConfig('gomage_social/twitter/enable') && Mage::getStoreConfig('gomage_social/twitter/id') && Mage::getStoreConfig('gomage_social/twitter/secret');
     }
 	public function isActive() {
-		return Mage::getStoreConfig('gomage_social/general/enable') && ($this->isFBActive() || $this->isGActive() || $this->isLIActive());
+		return Mage::getStoreConfig('gomage_social/general/enable') && ($this->isFBActive() || $this->isGActive() || $this->isLIActive() || $this->isTWActive());
 	}
 	
 	public function getServices($place = '') {

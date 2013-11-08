@@ -7,8 +7,8 @@
  * @author       GoMage
  * @license      http://www.gomage.com/license-agreement/  Single domain license
  * @terms of use http://www.gomage.com/terms-of-use
- * @version      Release: 1.0
- * @since        Class available since Release 1.0
+ * @version      Release: 11.1.0
+ * @since        Class available since Release 1.0.0
  */ 
 
 class GoMage_Social_Model_Adminhtml_System_Config_Source_Login_Type{

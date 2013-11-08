@@ -6,8 +6,8 @@
  * @author       GoMage
  * @license      http://www.gomage.com/license-agreement/  Single domain license
  * @terms of use http://www.gomage.com/terms-of-use
- * @version      Release: 1.0
- * @since        Class available since Release 1.0
+ * @version      Release: 1.1.0
+ * @since        Class available since Release 1.0.0
  */ 
  
 /* Header Fast Links
@@ -91,4 +91,14 @@ html .glc-rtl.glc-login-and-paypal .gs-login-checkout{
 }
 #gsc_message{
     color: red;
+}
+
+#gomage-social-overlay,
+.overlay_gomage_cp{
+    background:#000;
+    z-index:2000 !important;
+    filter:alpha(opacity=60);
+    -webkit-opacity:.6;
+    -moz-opacity:.6;
+    opacity:.6;
 }

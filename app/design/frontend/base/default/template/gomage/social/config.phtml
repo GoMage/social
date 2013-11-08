@@ -7,8 +7,8 @@
  * @author       GoMage
  * @license      http://www.gomage.com/license-agreement/  Single domain license
  * @terms of use http://www.gomage.com/terms-of-use
- * @version      Release: 1.0
- * @since        Class available since Release 1.0
+ * @version      Release: 1.1.0
+ * @since        Class available since Release 1.0.0
  */ 
 ?>
 <?php if (Mage::helper('gomage_social')->isActive()): ?>
@@ -87,9 +87,9 @@
  	<script type="text/javascript">
 	//<![CDATA[
 
-	 	function gomageSocialGSigninCallback(authResult){    	  
+	 	function gomageSocialGSigninCallback(authResult){
 		      if (authResult['code']) {
-			      var params = {code: authResult['code'], google_plus: 1};		      
+			      var params = {code: authResult['code'], google_plus: 1};
 		    	  var request = new Ajax.Request('<?php echo $this->getUrl('gomage_social/google/callback', array('_secure' => true, 'gs_url' => Mage::helper('core')->urlEncode(Mage::helper('core/url')->getCurrentUrl())));  ?>',
 		    	  {
 				    method: 'post',
@@ -102,10 +102,10 @@
 				    		window.location.reload();
 	        			}
 				    }
-		    	  });   			    	              
+		    	  });
 		      }
-	  } 
-	  
+	  }
+
       (function() {
 	       var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
 	       po.src = 'https://apis.google.com/js/client:plusone.js';
@@ -113,7 +113,7 @@
 	       window.___gcfg = {
 	   		    lang: '<?php echo Mage::app()->getLocale()->getLocaleCode() ?>',
 	   		    parsetags: 'onload'
-	   	   }	       
+	   	   }
       })();
     //]]>
 	</script>
@@ -125,28 +125,43 @@
 
 <?php if(Mage::getSingleton('core/session')->getGsProfile()->url):?>
 
-    <div id="gs-popup-content" style="display:none">
+    <div id="gs-popup-content" style="overflow: auto; display:none; position: absolute;  ">
+        <div id="gs-validate-detail">
         <ul class="form-list">
             <li>
                 <label for="email" class="required"><em>*</em>Email Address</label>
                 <div class="input-box">
-                    <input type="text" name="email" value="" id="email" class="input-text required-entry validate-email" title="Email Address">
+                    <input type="text" name="email" value="" id="gs-email" class="input-text required-entry validate-email" title="Email Address">
                 </div>
             </li>
             <div class="actions">
-                <button type="submit" class="button" onclick="GomageSicialClass.sendEmail($('email').value,'<?php echo Mage::getSingleton('core/session')->getGsProfile()->url;?>')"><span><span>Login</span></span></button>
-                <span style="display: none;" id="social-please-wait" class="please-wait">
+                <button type="submit" class="button validation-passed" onclick="GomageSicialClass.sendEmail($('gs-email').value,'<?php echo Mage::getSingleton('core/session')->getGsProfile()->url;?>')"><span><span>Login</span></span></button>
+                <span style="display: none;" id="gs-please-wait" class="please-wait">
             <img class="v-middle" title="Loading next step..." alt="Loading next step..." src="/skin/frontend/default/default/images/opc-ajax-loader.gif">  </span>
-                <div id="gsc_message" ></div>
+                <div id="gs-message" ></div>
             </div>
 
         </ul>
+        </div>
     </div>
 
 
     <script type="text/javascript">
+        //<![CDATA[
         win =  GomageSicialClass.createWindow("<?php echo __('Enter your email'); ?>", 300, 100);
         win.getContent().update($('gs-popup-content').innerHTML);
         win.showCenter();
+        if(GomageSicialClass.gs_overlay){
+        GomageSicialClass.gs_overlay.show();
+        }
+        var id = GomageSicialClass.id_window();
+        $(id).onclick = function(){
+            window.parent.Windows.close(id.replace('_close',''));
+            if(GomageSicialClass.gs_overlay){
+            GomageSicialClass.gs_overlay.hide();
+            }
+        }
+        //]]>
     </script>
 <?php endif; ?>
+
