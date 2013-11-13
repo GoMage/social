@@ -28,8 +28,14 @@ class GoMage_Social_Helper_Data extends Mage_Core_Helper_Abstract {
     public function isTWActive() {
         return Mage::getStoreConfig('gomage_social/twitter/enable') && Mage::getStoreConfig('gomage_social/twitter/id') && Mage::getStoreConfig('gomage_social/twitter/secret');
     }
+    public function isTUActive() {
+        return Mage::getStoreConfig('gomage_social/tumblr/enable') && Mage::getStoreConfig('gomage_social/tumblr/id') && Mage::getStoreConfig('gomage_social/tumblr/secret');
+    }
+    public function isREActive() {
+        return Mage::getStoreConfig('gomage_social/reddit/enable') && Mage::getStoreConfig('gomage_social/reddit/id') && Mage::getStoreConfig('gomage_social/reddit/secret');
+    }
 	public function isActive() {
-		return Mage::getStoreConfig('gomage_social/general/enable') && ($this->isFBActive() || $this->isGActive() || $this->isLIActive() || $this->isTWActive());
+		return Mage::getStoreConfig('gomage_social/general/enable') && ($this->isFBActive() || $this->isGActive() || $this->isLIActive() || $this->isTWActive() || $this->isTUActive() || $this->isREActive());
 	}
 	
 	public function getServices($place = '') {
@@ -56,7 +62,12 @@ class GoMage_Social_Helper_Data extends Mage_Core_Helper_Abstract {
         if ($this->isTWActive() && in_array(GoMage_Social_Model_Type::TWITTER, $selected_services)) {
             $result[GoMage_Social_Model_Type::TWITTER] = Mage::getStoreConfig('gomage_social/twitter/order');
         }
-
+        if ($this->isTUActive() && in_array(GoMage_Social_Model_Type::TUMBLR, $selected_services)) {
+            $result[GoMage_Social_Model_Type::TUMBLR] = Mage::getStoreConfig('gomage_social/tumblr/order');
+        }
+        if ($this->isREActive() && in_array(GoMage_Social_Model_Type::REDDIT, $selected_services)) {
+            $result[GoMage_Social_Model_Type::REDDIT] = Mage::getStoreConfig('gomage_social/reddit/order');
+        }
 		natcasesort($result);
 		
 		return $result;

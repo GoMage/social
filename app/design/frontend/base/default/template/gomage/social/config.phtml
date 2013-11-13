@@ -120,7 +120,7 @@
 <?php endif; ?>
 
     <script type="text/javascript">
-        var GomageSicialClass = new GomageSicialClass ;
+        var GomageSocialClass = new GomageSocialClass ;
     </script>
 
 <?php if(Mage::getSingleton('core/session')->getGsProfile()->url):?>
@@ -135,7 +135,7 @@
                 </div>
             </li>
             <div class="actions">
-                <button type="submit" class="button validation-passed" onclick="GomageSicialClass.sendEmail($('gs-email').value,'<?php echo Mage::getSingleton('core/session')->getGsProfile()->url;?>')"><span><span><?php echo $this->__('Login') ?></span></span></button>
+                <button type="submit" class="button validation-passed" onclick="GomageSocialClass.sendEmail($('gs-email').value,'<?php echo Mage::getSingleton('core/session')->getGsProfile()->url;?>')"><span><span><?php echo $this->__('Login') ?></span></span></button>
                 <span style="display: none;" id="gs-please-wait" class="please-wait">
             <img class="v-middle" title="<?php echo $this->__('Loading...') ?>" alt="<?php echo $this->__('Loading...') ?>" src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" />  </span>
                 <div id="gs-message" ></div>
@@ -148,17 +148,17 @@
 
     <script type="text/javascript">
         //<![CDATA[
-        win =  GomageSicialClass.createWindow("<?php echo __('Enter your email'); ?>", 300, 100);
+        win =  GomageSocialClass.createWindow("<?php echo __('Enter your email'); ?>", 300, 100);
         win.getContent().update($('gs-popup-content').innerHTML);
         win.showCenter();
-        if(GomageSicialClass.gs_overlay){
-        GomageSicialClass.gs_overlay.show();
+        if(GomageSocialClass.gs_overlay){
+        GomageSocialClass.gs_overlay.show();
         }
-        var id = GomageSicialClass.id_window();
+        var id = GomageSocialClass.id_window();
         $(id).onclick = function(){
             window.parent.Windows.close(id.replace('_close',''));
-            if(GomageSicialClass.gs_overlay){
-            GomageSicialClass.gs_overlay.hide();
+            if(GomageSocialClass.gs_overlay){
+            GomageSocialClass.gs_overlay.hide();
             }
         }
         //]]>

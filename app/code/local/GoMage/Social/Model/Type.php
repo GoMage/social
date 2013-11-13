@@ -17,5 +17,7 @@ class GoMage_Social_Model_Type {
 	const LINKEDIN = 2; 
 	const GOOGLE = 3;
     const TWITTER= 4;
+    const TUMBLR= 5;
+    const REDDIT= 6;
 
 }

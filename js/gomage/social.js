@@ -10,7 +10,7 @@
  * @since        Class available since Release 1.1.0
  */
 
-GomageSicialClass = Class.create({
+GomageSocialClass = Class.create({
 
     config: null,
     gs_overlay: null,
@@ -24,10 +24,10 @@ GomageSicialClass = Class.create({
             document.body.appendChild(this.gs_overlay);
             var offsets = element.cumulativeOffset();
                window.onload = function(){
-                   var wrapper = GomageSicialClass.elementsByClass('wrapper');
+                   var wrapper = GomageSocialClass.elementsByClass('wrapper');
                    if(wrapper){
                        if(screen.height <  wrapper.getHeight()){
-                           GomageSicialClass.gs_overlay.setStyle({
+                           GomageSocialClass.gs_overlay.setStyle({
                                'height': wrapper.getHeight() + 'px'
                            });
                        }

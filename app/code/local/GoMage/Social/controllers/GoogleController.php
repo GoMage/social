@@ -8,7 +8,7 @@
  * @license      http://www.gomage.com/license-agreement/  Single domain license
  * @terms of use http://www.gomage.com/terms-of-use
  * @version      Release: 1.1.0
- * @since        Class available since Release 1.01.0
+ * @since        Class available since Release 1.1.0
  */ 
 
 require_once (Mage::getBaseDir('lib') . DS . 'GoMage' . DS . 'Google' . DS . 'Google_Client.php');
