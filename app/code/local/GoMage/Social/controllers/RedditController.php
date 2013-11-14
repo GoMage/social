@@ -17,8 +17,6 @@ require_once (Mage::getBaseDir('lib') . DS . 'GoMage' . DS . 'Reddit' . DS . 'Gr
 
 class GoMage_Social_RedditController extends GoMage_Social_Controller_SocialNoMail {
 
-    protected $_confirm ;
-
  protected  $authorizeUrl = 'https://ssl.reddit.com/api/v1/authorize';
  protected  $accessTokenUrl = 'https://ssl.reddit.com/api/v1/access_token';
 

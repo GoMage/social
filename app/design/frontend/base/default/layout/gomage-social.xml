@@ -32,7 +32,7 @@
 			 <action method="setUsedList"><used_list>1</used_list></action>
 		</block>
 		<reference name="top.links">
-			 <action ifconfig="gomage_social/general/enable" method="addLinkBlock"><blockName>gomage.social.fast.links</blockName></action>  
+			 <action ifconfig="gomage_social/general/enable" method="addLinkBlock"><blockName>gomage.social.fast.links</blockName></action>
 		</reference>
 		<reference name="head">    	    		    		    		    		    		      		 
     		 <action method="addItem"><type>skin_css</type><name>css/gomage/social.css</name></action>    		    		    		 

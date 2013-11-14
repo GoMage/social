@@ -46,7 +46,9 @@ class GoMage_Social_Block_Login extends Mage_Core_Block_Template {
 	}
 	
 	public function getText($service = '') {
+
 		if ($service) {
+
 			$text = Mage::getStoreConfig('gomage_social/' . $service . '/text');
 			if ($text) {
 				return $text;
@@ -62,4 +64,11 @@ class GoMage_Social_Block_Login extends Mage_Core_Block_Template {
 		
 	}
 
+    public function getServiceBlock($key, $last_key, $service) {
+     return   $this->getLayout()->createBlock('gomage_social/login')
+        ->setData('key', $key)
+        ->setData('last_key', $last_key)
+         ->setData('service', $service)
+        ->setTemplate('gomage/social/login/service.phtml')->toHtml();
+    }
 }

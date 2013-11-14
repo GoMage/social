@@ -13,7 +13,7 @@
 
 abstract class GoMage_Social_Controller_SocialNoMail extends GoMage_Social_Controller_Social {
 
-	
+
 	protected function createCustomer($profile){
 
 		$customer = Mage::getModel('customer/customer');

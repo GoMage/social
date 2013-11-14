@@ -15,8 +15,6 @@ require_once (Mage::getBaseDir('lib') . DS . 'GoMage' . DS . 'Tumblr' . DS . 'tu
 
 class GoMage_Social_TumblrController extends GoMage_Social_Controller_SocialNoMail {
 
-    protected $_confirm ;
-
     public function getSocialType() {
         return GoMage_Social_Model_Type::TUMBLR;
     }

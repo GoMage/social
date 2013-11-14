@@ -151,14 +151,14 @@
         win =  GomageSocialClass.createWindow("<?php echo __('Enter your email'); ?>", 300, 100);
         win.getContent().update($('gs-popup-content').innerHTML);
         win.showCenter();
-        if(GomageSocialClass.gs_overlay){
-        GomageSocialClass.gs_overlay.show();
+        if(GomageSocialClass.overlay){
+        GomageSocialClass.overlay.show();
         }
-        var id = GomageSocialClass.id_window();
-        $(id).onclick = function(){
-            window.parent.Windows.close(id.replace('_close',''));
-            if(GomageSocialClass.gs_overlay){
-            GomageSocialClass.gs_overlay.hide();
+        var gs_id_window = GomageSocialClass.id_window();
+        $(gs_id_window).onclick = function(){
+            window.parent.Windows.close(gs_id_window.replace('_close',''));
+            if(GomageSocialClass.overlay){
+            GomageSocialClass.overlay.hide();
             }
         }
         //]]>

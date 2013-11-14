@@ -63,50 +63,18 @@
 		<?php endif; ?>
 	</li>	
 <?php break; ?>
-<?php case (GoMage_Social_Model_Type::LINKEDIN): ?>	
-	<li <?php if ($key == $last_key): ?>class="last"<?php endif; ?>>
-		<a href="<?php echo $this->getUrl('gomage_social/linkedin/login', array('_secure' => true, 'gs_url' => Mage::helper('core')->urlEncode(Mage::helper('core/url')->getCurrentUrl())));  ?>" title="<?php echo $this->getText('linkedin') ?>">
-			<?php if (($image = $this->getImage('linkedin')) && ($this->getLoginType('linkedin') == GoMage_Social_Model_Adminhtml_System_Config_Source_Login_Type::IMAGE)): ?>
-				<img src="<?php echo $image ?>" alt="<?php echo $this->getText('linkedin') ?>" />
-			<?php else: ?>
-				<?php echo $this->getText('linkedin') ?>
-			<?php endif; ?>
-		</a>
-	</li>
-<?php break; ?>
-                <?php case (GoMage_Social_Model_Type::TWITTER): ?>
-                    <li <?php if ($key == $last_key): ?>class="last"<?php endif; ?>>
-                        <a href="<?php echo $this->getUrl('gomage_social/twitter/login', array('_secure' => true, 'gs_url' => Mage::helper('core')->urlEncode(Mage::helper('core/url')->getCurrentUrl())));  ?>" title="<?php echo $this->getText('twitter') ?>">
-                            <?php if (($image = $this->getImage('twitter')) && ($this->getLoginType('twitter') == GoMage_Social_Model_Adminhtml_System_Config_Source_Login_Type::IMAGE)): ?>
-                                <img src="<?php echo $image ?>" alt="<?php echo $this->getText('twitter') ?>" />
-                            <?php else: ?>
-                                <?php echo $this->getText('twitter') ?>
-                            <?php endif; ?>
-                        </a>
-                    </li>
+                    <?php case (GoMage_Social_Model_Type::LINKEDIN): ?>
+                     <?php echo $this->getServiceBlock($key, $last_key, 'linkedin');?>
                     <?php break; ?>
-                <?php case (GoMage_Social_Model_Type::TUMBLR): ?>
-                    <li <?php if ($key == $last_key): ?>class="last"<?php endif; ?>>
-                        <a href="<?php echo $this->getUrl('gomage_social/tumblr/login', array('_secure' => true, 'gs_url' => Mage::helper('core')->urlEncode(Mage::helper('core/url')->getCurrentUrl())));  ?>" title="<?php echo $this->getText('tumblr') ?>">
-                            <?php if (($image = $this->getImage('tumblr')) && ($this->getLoginType('tumblr') == GoMage_Social_Model_Adminhtml_System_Config_Source_Login_Type::IMAGE)): ?>
-                                <img src="<?php echo $image ?>" alt="<?php echo $this->getText('tumblr') ?>" />
-                            <?php else: ?>
-                                <?php echo $this->getText('tumblr') ?>
-                            <?php endif; ?>
-                        </a>
-                    </li>
-                    <?php break; ?>
-                <?php case (GoMage_Social_Model_Type::REDDIT): ?>
-                    <li <?php if ($key == $last_key): ?>class="last"<?php endif; ?>>
-                        <a href="<?php echo $this->getUrl('gomage_social/reddit/login', array('_secure' => true, 'gs_url' => Mage::helper('core')->urlEncode(Mage::helper('core/url')->getCurrentUrl())));  ?>" title="<?php echo $this->getText('reddit') ?>">
-                            <?php if (($image = $this->getImage('reddit')) && ($this->getLoginType('reddit') == GoMage_Social_Model_Adminhtml_System_Config_Source_Login_Type::IMAGE)): ?>
-                                <img src="<?php echo $image ?>" alt="<?php echo $this->getText('reddit') ?>" />
-                            <?php else: ?>
-                                <?php echo $this->getText('reddit') ?>
-                            <?php endif; ?>
-                        </a>
-                    </li>
-                    <?php break; ?>
+                    <?php case (GoMage_Social_Model_Type::TWITTER): ?>
+                       <?php echo $this->getServiceBlock($key, $last_key, 'twitter');?>
+                        <?php break; ?>
+                    <?php case (GoMage_Social_Model_Type::TUMBLR): ?>
+                        <?php echo $this->getServiceBlock($key, $last_key, 'tumblr');?>
+                        <?php break; ?>
+                    <?php case (GoMage_Social_Model_Type::REDDIT): ?>
+                        <?php echo $this->getServiceBlock($key, $last_key, 'reddit');?>
+                        <?php break; ?>
 <?php endswitch; ?>
 
 		<?php endforeach; ?>

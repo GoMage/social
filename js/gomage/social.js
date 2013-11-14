@@ -13,27 +13,27 @@
 GomageSocialClass = Class.create({
 
     config: null,
-    gs_overlay: null,
+    overlay: null,
 
     initialize: function (config) {
-        this.gs_overlay = $('gomage-social-overlay');
-        if (!this.gs_overlay) {
+        this.overlay = $('gomage-social-overlay');
+        if (!this.overlay) {
             var element = $$('body')[0];
-            this.gs_overlay = $(document.createElement('div'));
-            this.gs_overlay.id = 'gomage-social-overlay';
-            document.body.appendChild(this.gs_overlay);
+            this.overlay = $(document.createElement('div'));
+            this.overlay.id = 'gomage-social-overlay';
+            document.body.appendChild(this.overlay);
             var offsets = element.cumulativeOffset();
                window.onload = function(){
                    var wrapper = GomageSocialClass.elementsByClass('wrapper');
                    if(wrapper){
                        if(screen.height <  wrapper.getHeight()){
-                           GomageSocialClass.gs_overlay.setStyle({
+                           GomageSocialClass.overlay.setStyle({
                                'height': wrapper.getHeight() + 'px'
                            });
                        }
                    }
                }
-            this.gs_overlay.setStyle({
+            this.overlay.setStyle({
                 'top': offsets[1] + 'px',
                 'left': offsets[0] + 'px',
                 'width': element.offsetWidth + 'px',
@@ -70,7 +70,7 @@ GomageSocialClass = Class.create({
                     }
                     if(response.success){
                         $('gs-popup-content').hide();
-                        window.location.replace(location.href);
+                        window.location.replace(location.href.replace('#_=_', ''));
                     }
                     if(response.redirect){
                         window.location.replace(response.redirect);
