@@ -112,6 +112,7 @@ class GoMage_Social_TwitterController extends GoMage_Social_Controller_SocialNoM
                       }
                 }else{
                     $profile->url = Mage::getUrl('gomage_social/twitter/checkEmail');
+                    $profile->urlEmailClose = Mage::getUrl('gomage_social/twitter/emailClose');
                     $profile->type_id =  GoMage_Social_Model_Type::TWITTER;
                     Mage::getSingleton('core/session')->setGsProfile($profile);
                 }

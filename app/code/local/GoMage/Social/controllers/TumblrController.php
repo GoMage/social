@@ -114,7 +114,9 @@ class GoMage_Social_TumblrController extends GoMage_Social_Controller_SocialNoMa
                         }
                     }
                 }else{
+
                     $profile->url = Mage::getUrl('gomage_social/tumblr/checkEmail');
+                    $profile->urlEmailClose = Mage::getUrl('gomage_social/twitter/emailClose');
                     $profile->type_id =  GoMage_Social_Model_Type::TUMBLR;
                     Mage::getSingleton('core/session')->setGsProfile($profile);
                 }

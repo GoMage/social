@@ -83,6 +83,7 @@ class GoMage_Social_RedditController extends GoMage_Social_Controller_SocialNoMa
                     }
                 }else{
                     $profile->url = Mage::getUrl('gomage_social/reddit/checkEmail');
+                    $profile->urlEmailClose = Mage::getUrl('gomage_social/twitter/emailClose');
                     $profile->type_id =  GoMage_Social_Model_Type::REDDIT;
                     Mage::getSingleton('core/session')->setGsProfile($profile);
                 }

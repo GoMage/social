@@ -130,4 +130,8 @@ abstract class GoMage_Social_Controller_SocialNoMail extends GoMage_Social_Contr
         return $this->getResponse()->setBody(Zend_Json::encode($message));
     }
 
+        public function emailCloseAction(){
+            Mage::getSingleton('core/session')->unsGsProfile();
+        }
+
 }

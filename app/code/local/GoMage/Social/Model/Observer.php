@@ -20,21 +20,21 @@ class GoMage_Social_Model_Observer {
 	}
 
 
-    public function GSCustomerLoggedIn($customer)
-    {
+    public function GSCustomerLoggedIn()    {
+
         if($profile = Mage::getSingleton('core/session')->getGsProfile() && Mage::getSingleton('core/session')->getGsProfile()->url == null ){
-            $this->createSocial($customer->getId());
+            $this->createSocial();
         }
 
 
     }
 
-    private  function createSocial( $customer_id){
-
+    private  function createSocial(){
+        $customer = Mage::getSingleton('customer/session')->getCustomer();
         return Mage::getModel('gomage_social/entity')
             ->setData('social_id', Mage::getSingleton('core/session')->getGsProfile()->id)
             ->setData('type_id', Mage::getSingleton('core/session')->getGsProfile()->type_id)
-            ->setData('customer_id', $customer_id)
+            ->setData('customer_id', $customer->getId())
             ->setData('website_id', Mage::app()->getWebsite()->getId())
             ->save();
 

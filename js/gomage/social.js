@@ -26,11 +26,12 @@ GomageSocialClass = Class.create({
                window.onload = function(){
                    var wrapper = GomageSocialClass.elementsByClass('wrapper');
                    if(wrapper){
-                       if(screen.height <  wrapper.getHeight()){
+
                            GomageSocialClass.overlay.setStyle({
-                               'height': wrapper.getHeight() + 'px'
+                               'height': wrapper.getHeight() + 'px',
+                               'width': wrapper.getWidth() + 'px'
                            });
-                       }
+
                    }
                }
             this.overlay.setStyle({
@@ -93,6 +94,12 @@ GomageSocialClass = Class.create({
 
 },
 
+    unsGsProfile: function(url) {
+        var request = new Ajax.Request(url, {
+                method : 'POST',
+                loaderArea : false
+        });
+    },
     elementsByClass: function(name) {
         var elements = window.parent.document.getElementsByClassName(name);
         for (i = 0; i < elements.length; i++){
