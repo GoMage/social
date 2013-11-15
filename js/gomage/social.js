@@ -111,7 +111,7 @@ GomageSocialClass = Class.create({
     createWindow : function (title,width,height)
     {
     win = new Window({
-    className:'magento',
+    className:'dialog-gs magento',
     title: title,
     width:width,
     height:height,
