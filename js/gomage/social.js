@@ -119,10 +119,12 @@ GomageSocialClass = Class.create({
         minimizable:false,
         resizable:false,
         draggable:false,
+        closeOnEsc: false,
         showEffect:Effect.BlindDown,
         hideEffect:Effect.BlindUp,
         showEffectOptions: {duration: 0.4},
         hideEffectOptions: {duration: 0.4}}
+
     );
      win.setZIndex(5000);
      return win;
