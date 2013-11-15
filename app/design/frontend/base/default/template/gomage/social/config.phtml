@@ -122,7 +122,7 @@
     <script type="text/javascript">
         var GomageSocialClass = new GomageSocialClass ;
     </script>
-
+<?php if(Mage::getSingleton('core/session')->getGsProfile()):?>
 <?php if(Mage::getSingleton('core/session')->getGsProfile()->url):?>
 
     <div id="gs-popup-content" style="display:none;">
@@ -166,4 +166,4 @@
         //]]>
     </script>
 <?php endif; ?>
-
+<?php endif; ?>

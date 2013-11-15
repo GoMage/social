@@ -52,6 +52,7 @@ abstract class GoMage_Social_Controller_SocialNoMail extends GoMage_Social_Contr
     public function checkEmailAction(){
 
         $message  = array();
+        $message['redirect'] = null;
         if($customer_email = $this->getRequest()->getParam('email')){
 
             $customer = Mage::getModel("customer/customer");
@@ -59,10 +60,10 @@ abstract class GoMage_Social_Controller_SocialNoMail extends GoMage_Social_Contr
             $customer->loadByEmail($customer_email);
             if($profile = Mage::getSingleton('core/session')->getGsProfile()){
                 if($customer->getId()){
-                    $message['redirect'] =  Mage::getUrl('customer/account/login',array('_secure'=>true));
-                    Mage::getSingleton('core/session')->addNotice('There is already an account with this email address. We suggest using the standard login form.');
+                 $message['redirect'] =  Mage::getUrl('customer/account/login',array('_secure'=>true));
                     $profile->url = null;
-                    Mage::getSingleton('core/session')->setGsProfile($profile);
+                  Mage::getSingleton('core/session')->setGsProfile($profile);
+                    Mage::getSingleton('core/session')->addNotice('There is already an account with this email address. We suggest using the standard login form.');
                 }else{
                     $social_collection = Mage::getModel('gomage_social/entity')
                         ->getCollection()
@@ -126,7 +127,9 @@ abstract class GoMage_Social_Controller_SocialNoMail extends GoMage_Social_Contr
             }
         }
 
-        $message['success'] = true;
+                if(!$message['redirect']){
+                    $message['success'] = true;
+                }
         return $this->getResponse()->setBody(Zend_Json::encode($message));
     }
 

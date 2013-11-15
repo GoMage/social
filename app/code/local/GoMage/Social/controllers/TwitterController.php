@@ -11,7 +11,7 @@
  * @since        Class available since Release 1.1.0
  */
 
-require_once (Mage::getBaseDir('lib') . DS . 'GoMage' . DS . 'Twitter' . DS . 'tumblroauth.php');
+require_once (Mage::getBaseDir('lib') . DS . 'GoMage' . DS . 'Twitter' . DS . 'twitteroauth-.php');
 
 class GoMage_Social_TwitterController extends GoMage_Social_Controller_SocialNoMail {
 
