@@ -93,7 +93,6 @@ GomageSocialClass = Class.create({
    return id;
 
 },
-
     unsGsProfile: function(url) {
         var request = new Ajax.Request(url, {
                 method : 'POST',
