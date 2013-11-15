@@ -20,4 +20,21 @@ class GoMage_Social_Model_Type {
     const TUMBLR= 5;
     const REDDIT= 6;
 
+
+    public static function getTypeString($type){
+        switch ($type) {
+            case 2:
+                return 'linkedin';
+                break;
+            case 4:
+                return 'twitter';
+                break;
+            case 5:
+                return 'tumblr';
+                break;
+            case 6:
+               return 'reddit';
+            break;
+        }
+    }
 }
