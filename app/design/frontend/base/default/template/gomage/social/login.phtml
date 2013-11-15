@@ -19,13 +19,13 @@
 	<ul class="gs-login <?php if(Mage::getConfig()->getModuleConfig('Enterprise_Enterprise' )): ?>gs-login-ee<?php endif; ?> gs-login-<?php echo $this->getPlace() ?>">
 		<?php 
 			end($services);
-			$last_key = key($services);
+        $last_type = key($services);
 		?>
 		<?php foreach ($services as $type => $value): ?>
 		
 <?php switch ($type): ?>
 <?php case (GoMage_Social_Model_Type::FACEBOOK): ?>
-	<li <?php if ($type == $last_key): ?>class="last"<?php endif; ?>>
+	<li <?php if ($type ==  $last_type): ?>class="last"<?php endif; ?>>
 		<?php if ($this->getLoginType('facebook') == GoMage_Social_Model_Adminhtml_System_Config_Source_Login_Type::BUTTON): ?>			
 			<fb:login-button scope="email" onlogin="gomageSocialFBCheckLogin()" v="2"></fb:login-button>
 		<?php else: ?>
@@ -40,7 +40,7 @@
 	</li>
 <?php break; ?>
 <?php case (GoMage_Social_Model_Type::GOOGLE): ?>
-	<li <?php if ($type == $last_key): ?>class="last"<?php endif; ?>>
+	<li <?php if ($type ==  $last_type): ?>class="last"<?php endif; ?>>
 		<?php if ($this->getLoginType('google') == GoMage_Social_Model_Adminhtml_System_Config_Source_Login_Type::BUTTON): ?>
 			<button class="g-signin"
 		        data-scope="https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email"
@@ -64,16 +64,16 @@
 	</li>	
 <?php break; ?>
                     <?php case (GoMage_Social_Model_Type::LINKEDIN): ?>
-                     <?php echo $this->getServiceBlock($type, $type== $last_key);?>
+                     <?php echo $this->getServiceBlock($type, $type==  $last_type);?>
                     <?php break; ?>
                     <?php case (GoMage_Social_Model_Type::TWITTER): ?>
-                       <?php echo $this->getServiceBlock($type, $type== $last_key);?>
+                       <?php echo $this->getServiceBlock($type, $type==  $last_type);?>
                         <?php break; ?>
                     <?php case (GoMage_Social_Model_Type::TUMBLR): ?>
-                        <?php echo $this->getServiceBlock($type, $type== $last_key);?>
+                        <?php echo $this->getServiceBlock($type, $type==  $last_type);?>
                         <?php break; ?>
                     <?php case (GoMage_Social_Model_Type::REDDIT): ?>
-                        <?php echo $this->getServiceBlock($type, $type== $last_key);?>
+                        <?php echo $this->getServiceBlock($type, $type==  $last_type);?>
                         <?php break; ?>
 <?php endswitch; ?>
 
