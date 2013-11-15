@@ -21,7 +21,7 @@ class GoMage_Social_Model_Type {
     const REDDIT= 6;
 
 
-    public static function getTypeString($type){
+    public static function getTypeService($type){
         switch ($type) {
             case 2:
                 return 'linkedin';
