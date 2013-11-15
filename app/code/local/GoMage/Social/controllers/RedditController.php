@@ -37,6 +37,8 @@ class GoMage_Social_RedditController extends GoMage_Social_Controller_SocialNoMa
         $callback_url = Mage::getUrl('gomage_social/reddit/callback');
         $client = new OAuth2\Client(Mage::getStoreConfig('gomage_social/reddit/id'), Mage::getStoreConfig('gomage_social/reddit/secret'), OAuth2\Client::AUTH_TYPE_AUTHORIZATION_BASIC);
         $params = array("code" => $_GET["code"], "redirect_uri" => $callback_url);
+
+        if($params['code']){
         $response = $client->getAccessToken($this->accessTokenUrl, "authorization_code", $params);
 
         $accessTokenResult = $response["result"];
@@ -90,6 +92,7 @@ class GoMage_Social_RedditController extends GoMage_Social_Controller_SocialNoMa
 
             }
 
+        }
         }
 
         return $this->_redirectUrl();
