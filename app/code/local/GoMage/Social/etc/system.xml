@@ -86,7 +86,7 @@
 					</fields>
 				</general>				
 				<facebook translate="label">
-					<label>FaceBook</label>
+					<label>Facebook</label>
 					<frontend_type>text</frontend_type>
 					<sort_order>10</sort_order>
 					<show_in_default>1</show_in_default>
@@ -103,7 +103,7 @@
 							<show_in_store>1</show_in_store>
 						</enable>
 						<id>
-							<label>Application Api</label>
+							<label>Application API</label>
 							<frontend_type>text</frontend_type>
 							<sort_order>20</sort_order>
 							<show_in_default>1</show_in_default>
@@ -111,7 +111,7 @@
 							<show_in_store>1</show_in_store>
 						</id>
 						<secret>
-							<label>Application Secret</label>
+							<label>Secret Key</label>
 							<frontend_type>text</frontend_type>
 							<sort_order>30</sort_order>
 							<show_in_default>1</show_in_default>
@@ -119,7 +119,7 @@
 							<show_in_store>1</show_in_store>
 						</secret>						
 						<fast_links_type>
-							<label>Fast Links Login Type</label>
+							<label>Fast Links View</label>
 							<frontend_type>select</frontend_type>
 							<source_model>gomage_social/adminhtml_system_config_source_login_type_facebook</source_model>
 							<sort_order>40</sort_order>
@@ -128,7 +128,7 @@
 							<show_in_store>1</show_in_store>
 						</fast_links_type>
 						<login_type>
-							<label>Login Page Login Type</label>
+							<label>Login Page View</label>
 							<frontend_type>select</frontend_type>
 							<source_model>gomage_social/adminhtml_system_config_source_login_type_facebook</source_model>
 							<sort_order>43</sort_order>
@@ -137,7 +137,7 @@
 							<show_in_store>1</show_in_store>
 						</login_type>
 						<checkout_type>
-							<label>Checkout Login Type</label>
+							<label>Checkout View</label>
 							<frontend_type>select</frontend_type>
 							<source_model>gomage_social/adminhtml_system_config_source_login_type_facebook</source_model>
 							<sort_order>46</sort_order>
@@ -208,7 +208,7 @@
 							<show_in_store>1</show_in_store>
 						</secret>						
 						<fast_links_type>
-							<label>Fast Links Login Type</label>
+							<label>Fast Links View</label>
 							<frontend_type>select</frontend_type>
 							<source_model>gomage_social/adminhtml_system_config_source_login_type</source_model>
 							<sort_order>40</sort_order>
@@ -217,7 +217,7 @@
 							<show_in_store>1</show_in_store>
 						</fast_links_type>
 						<login_type>
-							<label>Login Page Login Type</label>
+							<label>Login Page View</label>
 							<frontend_type>select</frontend_type>
 							<source_model>gomage_social/adminhtml_system_config_source_login_type</source_model>
 							<sort_order>43</sort_order>
@@ -226,7 +226,7 @@
 							<show_in_store>1</show_in_store>
 						</login_type>
 						<checkout_type>
-							<label>Checkout Login Type</label>
+							<label>Checkout View</label>
 							<frontend_type>select</frontend_type>
 							<source_model>gomage_social/adminhtml_system_config_source_login_type</source_model>
 							<sort_order>46</sort_order>
@@ -305,7 +305,7 @@
 							<show_in_store>1</show_in_store>
 						</api>
 						<fast_links_type>
-							<label>Fast Links Login Type</label>
+							<label>Fast Links View</label>
 							<frontend_type>select</frontend_type>
 							<source_model>gomage_social/adminhtml_system_config_source_login_type_google</source_model>
 							<sort_order>50</sort_order>
@@ -314,7 +314,7 @@
 							<show_in_store>1</show_in_store>
 						</fast_links_type>
 						<login_type>
-							<label>Login Page Login Type</label>
+							<label>Login Page View</label>
 							<frontend_type>select</frontend_type>
 							<source_model>gomage_social/adminhtml_system_config_source_login_type_google</source_model>
 							<sort_order>53</sort_order>
@@ -323,7 +323,7 @@
 							<show_in_store>1</show_in_store>
 						</login_type>
 						<checkout_type>
-							<label>Checkout Login Type</label>
+							<label>Checkout View</label>
 							<frontend_type>select</frontend_type>
 							<source_model>gomage_social/adminhtml_system_config_source_login_type_google</source_model>
 							<sort_order>56</sort_order>
@@ -378,7 +378,7 @@
                             <show_in_store>1</show_in_store>
                         </enable>
                         <id>
-                            <label>Application Api</label>
+                            <label>Application API</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>20</sort_order>
                             <show_in_default>1</show_in_default>
@@ -386,7 +386,7 @@
                             <show_in_store>1</show_in_store>
                         </id>
                         <secret>
-                            <label>Application Secret</label>
+                            <label>Secret Key</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>30</sort_order>
                             <show_in_default>1</show_in_default>
@@ -394,7 +394,7 @@
                             <show_in_store>1</show_in_store>
                         </secret>
                         <fast_links_type>
-                            <label>Fast Links Login Type</label>
+                            <label>Fast Links View</label>
                             <frontend_type>select</frontend_type>
                             <source_model>gomage_social/adminhtml_system_config_source_login_type</source_model>
                             <sort_order>40</sort_order>
@@ -403,7 +403,7 @@
                             <show_in_store>1</show_in_store>
                         </fast_links_type>
                         <login_type>
-                            <label>Login Page Login Type</label>
+                            <label>Login Page View</label>
                             <frontend_type>select</frontend_type>
                             <source_model>gomage_social/adminhtml_system_config_source_login_type</source_model>
                             <sort_order>43</sort_order>
@@ -412,7 +412,7 @@
                             <show_in_store>1</show_in_store>
                         </login_type>
                         <checkout_type>
-                            <label>Checkout Login Type</label>
+                            <label>Checkout View</label>
                             <frontend_type>select</frontend_type>
                             <source_model>gomage_social/adminhtml_system_config_source_login_type</source_model>
                             <sort_order>46</sort_order>
@@ -467,7 +467,7 @@
                             <show_in_store>1</show_in_store>
                         </enable>
                         <id>
-                            <label>Application Api</label>
+                            <label>Application API</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>20</sort_order>
                             <show_in_default>1</show_in_default>
@@ -475,7 +475,7 @@
                             <show_in_store>1</show_in_store>
                         </id>
                         <secret>
-                            <label>Application Secret</label>
+                            <label>Secret Key</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>30</sort_order>
                             <show_in_default>1</show_in_default>
@@ -483,7 +483,7 @@
                             <show_in_store>1</show_in_store>
                         </secret>
                         <fast_links_type>
-                            <label>Fast Links Login Type</label>
+                            <label>Fast Links View</label>
                             <frontend_type>select</frontend_type>
                             <source_model>gomage_social/adminhtml_system_config_source_login_type</source_model>
                             <sort_order>40</sort_order>
@@ -492,7 +492,7 @@
                             <show_in_store>1</show_in_store>
                         </fast_links_type>
                         <login_type>
-                            <label>Login Page Login Type</label>
+                            <label>Login Page View</label>
                             <frontend_type>select</frontend_type>
                             <source_model>gomage_social/adminhtml_system_config_source_login_type</source_model>
                             <sort_order>43</sort_order>
@@ -501,7 +501,7 @@
                             <show_in_store>1</show_in_store>
                         </login_type>
                         <checkout_type>
-                            <label>Checkout Login Type</label>
+                            <label>Checkout View</label>
                             <frontend_type>select</frontend_type>
                             <source_model>gomage_social/adminhtml_system_config_source_login_type</source_model>
                             <sort_order>46</sort_order>
@@ -556,7 +556,7 @@
                             <show_in_store>1</show_in_store>
                         </enable>
                         <id>
-                            <label>Application Api</label>
+                            <label>Application API</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>20</sort_order>
                             <show_in_default>1</show_in_default>
@@ -564,7 +564,7 @@
                             <show_in_store>1</show_in_store>
                         </id>
                         <secret>
-                            <label>Application Secret</label>
+                            <label>Secret Key</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>30</sort_order>
                             <show_in_default>1</show_in_default>
@@ -572,7 +572,7 @@
                             <show_in_store>1</show_in_store>
                         </secret>
                         <fast_links_type>
-                            <label>Fast Links Login Type</label>
+                            <label>Fast Links View</label>
                             <frontend_type>select</frontend_type>
                             <source_model>gomage_social/adminhtml_system_config_source_login_type</source_model>
                             <sort_order>40</sort_order>
@@ -581,7 +581,7 @@
                             <show_in_store>1</show_in_store>
                         </fast_links_type>
                         <login_type>
-                            <label>Login Page Login Type</label>
+                            <label>Login Page View</label>
                             <frontend_type>select</frontend_type>
                             <source_model>gomage_social/adminhtml_system_config_source_login_type</source_model>
                             <sort_order>43</sort_order>
@@ -590,7 +590,7 @@
                             <show_in_store>1</show_in_store>
                         </login_type>
                         <checkout_type>
-                            <label>Checkout Login Type</label>
+                            <label>Checkout View</label>
                             <frontend_type>select</frontend_type>
                             <source_model>gomage_social/adminhtml_system_config_source_login_type</source_model>
                             <sort_order>46</sort_order>

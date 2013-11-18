@@ -19,7 +19,7 @@ class GoMage_Social_Model_Adminhtml_System_Config_Source_Services{
     	
         return array(
         	array('value' => '', 'label' => ''),
-            array('value' => GoMage_Social_Model_Type::FACEBOOK, 'label' => $helper->__('FaceBook')),            
+            array('value' => GoMage_Social_Model_Type::FACEBOOK, 'label' => $helper->__('Facebook')),
             array('value' => GoMage_Social_Model_Type::LINKEDIN, 'label' => $helper->__('LinkedIn')),
             array('value' => GoMage_Social_Model_Type::GOOGLE, 'label' => $helper->__('Google')),
             array('value' => GoMage_Social_Model_Type::TWITTER, 'label' => $helper->__('Twitter')),
