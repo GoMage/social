@@ -192,7 +192,7 @@
 							<show_in_store>1</show_in_store>
 						</enable>
 						<id>
-							<label>API key</label>
+							<label>API Key</label>
 							<frontend_type>text</frontend_type>
 							<sort_order>20</sort_order>
 							<show_in_default>1</show_in_default>
@@ -289,7 +289,7 @@
 							<show_in_store>1</show_in_store>
 						</id>
 						<secret>
-							<label>Client secret</label>
+							<label>Client Secret</label>
 							<frontend_type>text</frontend_type>
 							<sort_order>30</sort_order>
 							<show_in_default>1</show_in_default>
@@ -297,7 +297,7 @@
 							<show_in_store>1</show_in_store>
 						</secret>
 						<api>
-							<label>API key</label>
+							<label>API Key</label>
 							<frontend_type>text</frontend_type>
 							<sort_order>40</sort_order>
 							<show_in_default>1</show_in_default>
