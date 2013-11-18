@@ -156,6 +156,7 @@
         GomageSocialClass.overlay.show();
         }
         var gs_id_window = GomageSocialClass.id_window();
+        $(gs_id_window.replace('_close','')).className = 'dialog dialog-gs';
         $(gs_id_window).onclick = function(){
             GomageSocialClass.unsGsProfile('<?php echo  Mage::getSingleton('core/session')->getGsProfile()->urlEmailClose; ?> ');
             window.parent.Windows.close(gs_id_window.replace('_close',''));
