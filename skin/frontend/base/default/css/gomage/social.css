@@ -131,6 +131,7 @@ html .glc-rtl.glc-login-and-paypal .gs-login-checkout{
   clear: both;
   margin: 5px 0;
   }
+.dialog-gs.dialog,
 .dialog-gs.magento_content{
   height: auto !important;
   }
