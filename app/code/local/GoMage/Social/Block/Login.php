@@ -12,7 +12,7 @@
  */
 
 class GoMage_Social_Block_Login extends Mage_Core_Block_Template {
-	
+
 	private $place;
 	
 	public function __construct() {
@@ -57,18 +57,18 @@ class GoMage_Social_Block_Login extends Mage_Core_Block_Template {
 		
 		return $this->__('Login');
 	}
-	
-	public function getLoginType($service = '') {
 
+	public function getLoginType($service = '') {
 		return Mage::getStoreConfig('gomage_social/'. $service .'/' . $this->getPlace() . '_type');
-		
+
 	}
 
-    public function getServiceBlock($type,  $is_last) {
+    public function getServiceBlock($type,  $is_last, $loginType) {
      $service = GoMage_Social_Model_Type::getTypeService($type);
      return   $this->getLayout()->createBlock('gomage_social/login')
         ->setData('is_last', $is_last)
         ->setData('service', $service)
+        ->setPlace($this->getPlace())
         ->setTemplate('gomage/social/login/service.phtml')->toHtml();
     }
 }
