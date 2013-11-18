@@ -18,7 +18,7 @@
             <action method="addJs"><script>gomage/social.js</script></action>
             <action method="addJs"><script>prototype/window.js</script></action>
             <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
-            <action method="addCss"><stylesheet>lib/prototype/windows/themes/magento.css</stylesheet></action>
+            <block type="gomage_social/head" name="gomage.social.head" />
         </reference>
 
     </default>
