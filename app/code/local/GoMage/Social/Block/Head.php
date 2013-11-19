@@ -16,13 +16,14 @@ class GoMage_Social_Block_Head extends Mage_Core_Block_Template{
 	protected function _prepareLayout()
     { 
         parent::_prepareLayout();
-
+        if (Mage::helper('gomage_social')->isActive()) {
         if(Mage::getVersion() < 1.7){
             $this->getLayout()->getBlock('head')->addItem('js_css', 'prototype/windows/themes/magento.css');
         }else{
             $this->getLayout()->getBlock('head')->addItem('skin_css', 'lib/prototype/windows/themes/magento.css');
         }
-
+        $this->getLayout()->getBlock('head')->addItem('js_css', 'prototype/windows/themes/magento.css');
+        }
     } 
 	
 }
