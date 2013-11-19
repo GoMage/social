@@ -63,7 +63,7 @@ class GoMage_Social_Block_Login extends Mage_Core_Block_Template {
 
 	}
 
-    public function getServiceBlock($type,  $is_last, $loginType) {
+    public function getServiceBlock($type,  $is_last) {
      $service = GoMage_Social_Model_Type::getTypeService($type);
      return   $this->getLayout()->createBlock('gomage_social/login_service')
         ->setData('is_last', $is_last)
