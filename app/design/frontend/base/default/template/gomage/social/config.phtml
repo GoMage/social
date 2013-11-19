@@ -31,7 +31,19 @@
 		});
 	//]]>
 	</script>
-<?php endif; ?> 
+<?php else: ?>
+    <script type="text/javascript">
+        //<![CDATA[
+        window.onload = function(){
+            var elements_header = window.document.getElementsByClassName('header');
+            var elements_links  = elements_header[0].getElementsByClassName('links');
+            var elements_links_li = elements_links[0].getElementsByTagName('li');
+            var last_li = elements_links_li[elements_links_li.length - 1];
+            last_li.className = 'last';
+        }
+        //]]>
+    </script>
+<?php endif; ?>
 <?php if (Mage::helper('gomage_social')->isFBActive() && Mage::getStoreConfig('gomage_social/general/enable')): ?>
 	<div id="fb-root"></div>
 	<script type="text/javascript">

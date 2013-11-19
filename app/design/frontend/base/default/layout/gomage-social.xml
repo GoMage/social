@@ -17,7 +17,6 @@
         <reference name="head">
             <block type="gomage_social/head" name="gomage.social.head" />
         </reference>
-
     </default>
 	<customer_logged_out>
         <reference name="after_body_start">

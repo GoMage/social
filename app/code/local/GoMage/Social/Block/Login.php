@@ -21,7 +21,7 @@ class GoMage_Social_Block_Login extends Mage_Core_Block_Template {
 			$this->setTemplate('gomage/social/login.phtml');
 		}
 	}
-	
+
 	private function getSession() {
 		return Mage::getSingleton('customer/session');
 	}
