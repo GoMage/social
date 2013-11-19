@@ -24,6 +24,7 @@ GomageSocialClass = Class.create({
             document.body.appendChild(this.overlay);
             var offsets = element.cumulativeOffset();
                window.onload = function(){
+                   $('gs-email').focus();
                    var wrapper = GomageSocialClass.elementsByClass('wrapper');
                    if(wrapper){
 
