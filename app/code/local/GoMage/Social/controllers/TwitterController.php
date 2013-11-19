@@ -106,6 +106,8 @@ class GoMage_Social_TwitterController extends GoMage_Social_Controller_SocialNoM
                         if ($customer && $customer->getId()){
                             if (!$customer->getConfirmation()) {
                             $this->getSession()->loginById($customer->getId());
+                            }else{
+                                $this->getSession()->addError($this->__('This account is not confirmed.'));
                             }
 
                         }
