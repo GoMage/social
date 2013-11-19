@@ -27,6 +27,5 @@ class GoMage_Social_Block_Head extends Mage_Core_Block_Template{
         $this->getLayout()->getBlock('head')->addjs('prototype/window.js');
         $this->getLayout()->getBlock('head')->addjs('gomage/social.js');
         }
-    } 
-	
+    }
 }
