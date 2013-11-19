@@ -22,7 +22,10 @@ class GoMage_Social_Block_Head extends Mage_Core_Block_Template{
         }else{
             $this->getLayout()->getBlock('head')->addItem('skin_css', 'lib/prototype/windows/themes/magento.css');
         }
-        $this->getLayout()->getBlock('head')->addItem('js_css', 'prototype/windows/themes/magento.css');
+        $this->getLayout()->getBlock('head')->addItem('js_css', 'prototype/windows/themes/default.css');
+        $this->getLayout()->getBlock('head')->addCss('css/gomage/social.css');
+        $this->getLayout()->getBlock('head')->addjs('prototype/window.js');
+        $this->getLayout()->getBlock('head')->addjs('gomage/social.js');
         }
     } 
 	
