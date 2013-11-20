@@ -34,19 +34,15 @@
 <?php else: ?>
     <script type="text/javascript">
         //<![CDATA[
-        window.onload = function(){
-            if(window.document.getElementsByClassName('header')){
-            var elements_header = window.document.getElementsByClassName('header');
-                if(elements_header[0].getElementsByClassName('links')){
-                    var elements_links  = elements_header[0].getElementsByClassName('links');
-                        if(elements_links[0].getElementsByTagName('li')){
-                            var elements_links_li = elements_links[0].getElementsByTagName('li');
-                            var last_li = elements_links_li[elements_links_li.length - 1];
-                            last_li.className = 'last';
-                        }
+        function lastLinks()
+        {
+            var gs_li = $$('div.header ul.links li');
+                if(gs_li){
+                  var gs_last_li = gs_li[gs_li.length - 1];
+                    gs_last_li.className = 'last';
                 }
-            }
         }
+        document.observe("dom:loaded",lastLinks);
         //]]>
     </script>
 <?php endif; ?>
