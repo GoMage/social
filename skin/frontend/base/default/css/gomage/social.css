@@ -106,17 +106,26 @@ html .glc-rtl.glc-login-and-paypal .gs-login-checkout{
 /* Popup
 -------------------------------------------------- */
 #gs-validate-detail{
-  padding: 10px 0 0;
+  padding: 10px 6px 0;
   }
-  #gs-validate-detail .input-box{
-    width: 100%;
+  #gs-validate-detail .form-list label{
+    width: auto;
+    padding: 0;
+    float: left;
+    position: relative;
     }
-    #gs-validate-detail .form-list input.input-text{
-      width: 100%;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing   : border-box;
-      box-sizing        : border-box;
+    #gs-validate-detail .form-list label em{
+      position: absolute;
+      right: -8px;
+      margin: 0;
       }
+  #gs-validate-detail .input-box,
+  #gs-validate-detail .form-list input.input-text{
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing   : border-box;
+    box-sizing        : border-box;
+    }
   #gs-validate-detail .actions{
     overflow: hidden;
     }
@@ -125,11 +134,20 @@ html .glc-rtl.glc-login-and-paypal .gs-login-checkout{
       }
   #gs-please-wait{
     float: left;
+    position: static;
+    margin: 0;
+    background: none;
+    border: 0;
+    padding: 0;
     }
 #gs-message{
   color: red;
   clear: both;
   margin: 5px 0;
+  }
+.dialog-gs .magento_w,
+.dialog-gs .magento_e{
+  width: 0;
   }
 .dialog-gs.dialog,
 .dialog-gs.magento_content{
