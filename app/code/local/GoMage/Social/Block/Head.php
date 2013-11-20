@@ -8,7 +8,7 @@
  * @license      http://www.gomage.com/license-agreement/  Single domain license
  * @terms of use http://www.gomage.com/terms-of-use
  * @version      Release: 1.1.0
- * @since        Class available since Release 1.0.0
+ * @since        Class available since Release 1.1.0
  */
 	
 class GoMage_Social_Block_Head extends Mage_Core_Block_Template{
