@@ -17,7 +17,8 @@ class GoMage_Social_Block_Head extends Mage_Core_Block_Template{
     { 
         parent::_prepareLayout();
         if (! Mage::getSingleton('customer/session')->isLoggedIn() && Mage::helper('gomage_social')->isActive()) {
-        if(Mage::getVersion() < 1.7){
+
+        if(!Mage::helper('gomage_social')->getIsAnymoreVersion(1, 7)){
             $this->getLayout()->getBlock('head')->addItem('js_css', 'prototype/windows/themes/magento.css');
         }else{
             $this->getLayout()->getBlock('head')->addItem('skin_css', 'lib/prototype/windows/themes/magento.css');
