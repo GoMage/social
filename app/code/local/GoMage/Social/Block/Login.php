@@ -17,6 +17,7 @@ class GoMage_Social_Block_Login extends Mage_Core_Block_Template {
 	
 	public function __construct() {
 		parent::__construct();
+		
 		if (! $this->getSession()->isLoggedIn() && Mage::helper('gomage_social')->isActive()) {
 			$this->setTemplate('gomage/social/login.phtml');
 		}
@@ -28,6 +29,7 @@ class GoMage_Social_Block_Login extends Mage_Core_Block_Template {
 	
 	public function setPlace($place) {
 		$this->place = $place;
+		
 		return $this;
 	}
 	
@@ -38,18 +40,19 @@ class GoMage_Social_Block_Login extends Mage_Core_Block_Template {
 	public function getImage($service = '') {
 		if ($service) {
 			$image = Mage::getStoreConfig('gomage_social/' . $service . '/image');
+			
 			if ($image) {
 				return Mage::getBaseUrl('media') . 'gomage/social/' . $image;
 			}
 		}
+		
 		return false;
 	}
 	
 	public function getText($service = '') {
-
 		if ($service) {
-
 			$text = Mage::getStoreConfig('gomage_social/' . $service . '/text');
+			
 			if ($text) {
 				return $text;
 			}
@@ -60,15 +63,15 @@ class GoMage_Social_Block_Login extends Mage_Core_Block_Template {
 
 	public function getLoginType($service = '') {
 		return Mage::getStoreConfig('gomage_social/'. $service .'/' . $this->getPlace() . '_type');
-
 	}
 
     public function getServiceBlock($type,  $is_last) {
-     $service = GoMage_Social_Model_Type::getTypeService($type);
-     return   $this->getLayout()->createBlock('gomage_social/login_service')
-        ->setData('is_last', $is_last)
-        ->setData('service', $service)
-        ->setPlace($this->getPlace())
-        ->toHtml();
+		$service = GoMage_Social_Model_Type::getTypeService($type);
+		
+		return $this->getLayout()->createBlock('gomage_social/login_service')
+			->setData('is_last', $is_last)
+			->setData('service', $service)
+			->setPlace($this->getPlace())
+			->toHtml();
     }
 }

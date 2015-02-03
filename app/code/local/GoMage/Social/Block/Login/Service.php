@@ -14,8 +14,7 @@
 class  GoMage_Social_Block_Login_Service extends GoMage_Social_Block_Login {
 	
 	public function __construct() {
-		parent::__construct();
-			$this->setTemplate('gomage/social/login/service.phtml');
+		parent::__construct();	
+		$this->setTemplate('gomage/social/login/service.phtml');
 	}
-
 }

@@ -14,29 +14,23 @@
 class GoMage_Social_Model_Observer {
 	
 	public static function saveConfig() {
-		
-		Mage::helper('gomage_social')->setInformation();
-		
+		Mage::helper('gomage_social')->setInformation();	
 	}
 
-
-    public function GSCustomerLoggedIn()    {
-
-        if($profile = Mage::getSingleton('core/session')->getGsProfile() && Mage::getSingleton('core/session')->getGsProfile()->url == null ){
+    public function GSCustomerLoggedIn() {
+		if($profile = Mage::getSingleton('core/session')->getGsProfile() && Mage::getSingleton('core/session')->getGsProfile()->url == null ){
             $this->createSocial();
         }
-
-
     }
 
     private  function createSocial(){
         $customer = Mage::getSingleton('customer/session')->getCustomer();
+		
         return Mage::getModel('gomage_social/entity')
             ->setData('social_id', Mage::getSingleton('core/session')->getGsProfile()->id)
             ->setData('type_id', Mage::getSingleton('core/session')->getGsProfile()->type_id)
             ->setData('customer_id', $customer->getId())
             ->setData('website_id', Mage::app()->getWebsite()->getId())
             ->save();
-
     }
 }

@@ -25,6 +25,7 @@ class GoMage_Social_Model_Adminhtml_System_Config_Source_Services{
             array('value' => GoMage_Social_Model_Type::TWITTER, 'label' => $helper->__('Twitter')),
             array('value' => GoMage_Social_Model_Type::TUMBLR, 'label' => $helper->__('Tumblr')),
             array('value' => GoMage_Social_Model_Type::REDDIT, 'label' => $helper->__('Reddit')),
+			array('value' => GoMage_Social_Model_Type::AMAZON, 'label' => $helper->__('Amazon')),
         );
     }
 

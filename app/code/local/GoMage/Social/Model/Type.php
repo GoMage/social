@@ -13,27 +13,30 @@
 
 class GoMage_Social_Model_Type {
 	
-	const FACEBOOK = 1;	
-	const LINKEDIN = 2; 
-	const GOOGLE = 3;
-    const TWITTER= 4;
-    const TUMBLR= 5;
-    const REDDIT= 6;
+	const FACEBOOK	= 1;	
+	const LINKEDIN	= 2; 
+	const GOOGLE	= 3;
+    const TWITTER	= 4;
+    const TUMBLR	= 5;
+    const REDDIT	= 6;
+	const AMAZON	= 7;
 
-
-    public static function getTypeService($type){
+    public static function getTypeService($type) {
         switch ($type) {
             case 2:
                 return 'linkedin';
-                break;
+			break;
             case 4:
                 return 'twitter';
-                break;
+			break;
             case 5:
                 return 'tumblr';
-                break;
+			break;
             case 6:
                return 'reddit';
+            break;
+			case 7:
+               return 'amazon';
             break;
         }
     }

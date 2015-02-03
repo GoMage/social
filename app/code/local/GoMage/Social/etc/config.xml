@@ -15,7 +15,7 @@
 <config>
 	<modules>
 		<GoMage_Social>
-			<version>1.1.0</version>
+			<version>1.2.0</version>
 		</GoMage_Social>
 	</modules>
 	<frontend>
@@ -165,6 +165,13 @@
                 <text>Login with Reddit</text>
                 <order>6</order>
             </reddit>
+			<amazon>
+                <fast_links_type>1</fast_links_type>
+                <login_type>1</login_type>
+                <checkout_type>1</checkout_type>
+                <text>Login with Amazon</text>
+                <order>7</order>
+            </amazon>
 			<information>
 				<text>
 					<![CDATA[<h2>GoMage Extensions</h2><p><a href="http://www.gomage.com/extensions/gomage-lightcheckout.html"><img title="GoMage LightCheckout - only one step on the checkout page" src="http://www.gomage.com/media/magentoconnect_image/lightcheckout.png" alt="GoMage LightCheckout" /></a> <a href="http://www.gomage.com/extensions/gomage-feed-pro.html"><img title="GoMage Feed Pro - send your product data to all Search Engines you know" src="http://www.gomage.com/media/magentoconnect_image/feed_pro.png" alt="GoMage Feed Pro" /></a> <a href="http://www.gomage.com/extensions/gomage-advanced-navigation.html"><img title="GoMage Advanced Navigation - helps you to optimize and improve navigation on your site" src="http://www.gomage.com/media/magentoconnect_image/advanced_navigation.png" alt="GoMage Advanced Navigation" /></a> <a href="http://www.gomage.com/extensions/promo.html"><img title="GoMage Ads &amp; Promo - simple, flexible, yet powerful solution for advertising and promoting your products" src="http://www.gomage.com/media/magentoconnect_image/ads_and_promo.png" alt="GoMage Ads &amp; Promo" /></a> <a href="http://www.gomage.com/extensions/procart.html"><img title="GoMage ProCart - allows your customers to add products to cart without page reloading or redirecting" src="http://www.gomage.com/media/magentoconnect_image/procart.png" alt="GoMage ProCart" /></a> <a href="http://www.gomage.com/extensions/gomage-sales-and-deals.html"><img title="GoMage Sales and Deals extension is all about providing the best deals for your customers" src="http://www.gomage.com/media/magentoconnect_image/sales_and_deals.png" alt="GoMage Sales and Deals" /></a></p>]]>
