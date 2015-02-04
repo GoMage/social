@@ -23,20 +23,26 @@ class GoMage_Social_Model_Type {
 
     public static function getTypeService($type) {
         switch ($type) {
-            case 2:
+			case self::FACEBOOK :
+                return 'facebook';
+			break;
+            case self::LINKEDIN :
                 return 'linkedin';
 			break;
-            case 4:
+			case self::GOOGLE :
+                return 'google';
+			break;
+            case self::TWITTER :
                 return 'twitter';
 			break;
-            case 5:
-                return 'tumblr';
+            case self::TUMBLR :
+				return 'tumblr';
 			break;
-            case 6:
-               return 'reddit';
+            case self::REDDIT :
+				return 'reddit';
             break;
-			case 7:
-               return 'amazon';
+			case self::AMAZON :
+				return 'amazon';
             break;
         }
     }

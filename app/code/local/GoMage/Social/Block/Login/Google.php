@@ -11,10 +11,10 @@
  * @since        Class available since Release 1.0.0
  */
 
-class GoMage_Social_Block_Login_Service extends GoMage_Social_Block_Login {
+class GoMage_Social_Block_Login_Google extends GoMage_Social_Block_Login {
 	
 	public function __construct() {
 		parent::__construct();	
-		$this->setTemplate('gomage/social/login/service.phtml');
+		$this->setTemplate('gomage/social/login/google.phtml');
 	}
 }

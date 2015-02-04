@@ -51,12 +51,14 @@ class GoMage_Social_AmazonController extends GoMage_Social_Controller_Social {
 	
 	public function callbackAction() {
 		try {
-			if ($this->getSession()->isLoggedIn() || empty($this->getRequest()->getParam('code'))) {
+			$code = $this->getRequest()->getParam('code');
+			
+			if ($this->getSession()->isLoggedIn() || empty($code)) {
 				return $this->_redirectUrl();
 			}
 			
 			$credentials	= $this->getCredentials();
-			$credentials->setData('code', $this->getRequest()->getParam('code'));
+			$credentials->setData('code', $code);
 					
 			$service		= new GoMage_Amazon_Service($credentials);
 			//GoMage_Amazon_Service::$return_request_error = true;	
