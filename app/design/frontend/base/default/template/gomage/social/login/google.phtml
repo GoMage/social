@@ -15,7 +15,7 @@
 <li <?php if ($this->is_last): ?>class="last"<?php endif; ?>>
     <?php if ($this->getLoginType('google') == GoMage_Social_Model_Adminhtml_System_Config_Source_Login_Type::BUTTON) : ?>
         <button class="g-signin"
-            data-scope="https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email"
+            data-scope="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email"
             data-requestvisibleactions="http://schemas.google.com/AddActivity"
             data-clientId="<?php echo Mage::getStoreConfig('gomage_social/google/id') ?>"
             data-accesstype="offline"

@@ -15,7 +15,28 @@
 	<script type="text/javascript">
 		//<![CDATA[
 		function gomageSocialPrepareFastLinks() {
-			try {							
+			try {	
+				var wrapper = document.getElementById('___signin_0');	
+				
+				if (wrapper) {
+					wrapper.style.height	= '25px';
+					wrapper.style.width		= '82px';
+					
+					var button = wrapper.getElementsByTagName('button')[0];
+					
+					if (button) {
+						button.style.height	= '25px';
+						button.style.width	= '82px';
+					}
+					
+					var iframe = wrapper.getElementsByTagName('iframe')[0];
+					
+					if (iframe) {
+						iframe.style.height	= '25px';
+						iframe.style.width	= '82px';
+					}
+				}
+										
 				if ($$('.gs-login-fast_links').length > 0) {
 					var fast_links = $$('.gs-login-fast_links')[0];
 					
@@ -24,8 +45,10 @@
 							fast_links.up('li').previous().addClassName('last');
 						}
 					}
+					
 				}
 			} catch(e){
+				
 			}
 		}
 		

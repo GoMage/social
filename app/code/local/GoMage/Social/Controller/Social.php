@@ -58,7 +58,7 @@ abstract class GoMage_Social_Controller_Social extends Mage_Core_Controller_Fron
         return $customer;      
 	}
 
-	protected function _getRedirectUrl($url) {
+	protected function _getRedirectUrl($url = '') {
 		if (!$url) {
     		$url = $this->getRequest()->getParam('gs_url', '');
     		
@@ -72,14 +72,14 @@ abstract class GoMage_Social_Controller_Social extends Mage_Core_Controller_Fron
     		}     		
     	}
 		
-    	if (!$url){
+    	if (!$url) {
     		$url = Mage::getBaseUrl();
     	}
 		
     	return $url;
 	}
 	
-	protected function _redirectUrl($url='') {
+	protected function _redirectUrl($url = '') {
 		return parent::_redirectUrl($this->_getRedirectUrl($url));
     }
 }
