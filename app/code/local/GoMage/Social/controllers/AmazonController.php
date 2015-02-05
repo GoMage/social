@@ -21,8 +21,7 @@ class GoMage_Social_AmazonController extends GoMage_Social_Controller_Social {
 	
 	public function getCredentials() {
 		if (!$this->credentials) {
-			$redirect_params	= array('_secure' => true);
-			$redirect_uri		= Mage::getUrl('gomage_social/amazon/callback', $redirect_params);
+			$redirect_uri = Mage::getUrl('gomage_social/amazon/callback', array('_secure' => true));
 			
 			$this->credentials = new GoMage_Amazon_Credentials(array(
 				'client_id'		=> Mage::getStoreConfig('gomage_social/amazon/id'),

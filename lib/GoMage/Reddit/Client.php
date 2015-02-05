@@ -65,7 +65,9 @@ class Client
      */
     const HTTP_FORM_CONTENT_TYPE_APPLICATION = 0;
     const HTTP_FORM_CONTENT_TYPE_MULTIPART = 1;
-
+	
+	public $useragent = 'Reddit OAuth';
+	
     /**
      * Client ID
      *
@@ -421,6 +423,7 @@ class Client
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 1);
         }
+		curl_setopt($ch, CURLOPT_USERAGENT, $this->useragent);
         $result = curl_exec($ch);
         $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $content_type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
