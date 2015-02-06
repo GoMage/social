@@ -8,13 +8,11 @@
  * @license      http://www.gomage.com/license-agreement/  Single domain license
  * @terms of use http://www.gomage.com/terms-of-use
  * @version      Release: 1.2.0
- * @since        Class available since Release 1.0.0
- */
-
-class GoMage_Social_Block_Login_Google extends GoMage_Social_Block_Login {
-	
-	public function __construct() {
-		parent::__construct();	
-		$this->setTemplate('gomage/social/login/google.phtml');
+ * @since        Class available since Release 1.2.0
+ */ 
+ 
+class GoMage_Social_Block_Adminhtml_System_Config_RedirectUri_Linkedin extends GoMage_Social_Block_Adminhtml_System_Config_AbstractRedirectUri {
+	public function getTypeService() {	
+		return GoMage_Social_Model_Type::getTypeService(GoMage_Social_Model_Type::LINKEDIN);
 	}
 }

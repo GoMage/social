@@ -4,11 +4,11 @@
  * GoMage Social Connector Extension
  *
  * @category     Extension
- * @copyright    Copyright (c) 2013 GoMage (http://www.gomage.com)
+ * @copyright    Copyright (c) 2013-2015 GoMage (http://www.gomage.com)
  * @author       GoMage
  * @license      http://www.gomage.com/license-agreement/  Single domain license
  * @terms of use http://www.gomage.com/terms-of-use
- * @version      Release: 1.1.0
+ * @version      Release: 1.2.0
  * @since        Class available since Release 1.0.0
  */ 
  -->
@@ -174,7 +174,8 @@
             </amazon>
 			<information>
 				<text>
-					<![CDATA[<h2>GoMage Extensions</h2><p><a href="http://www.gomage.com/extensions/gomage-lightcheckout.html"><img title="GoMage LightCheckout - only one step on the checkout page" src="http://www.gomage.com/media/magentoconnect_image/lightcheckout.png" alt="GoMage LightCheckout" /></a> <a href="http://www.gomage.com/extensions/gomage-feed-pro.html"><img title="GoMage Feed Pro - send your product data to all Search Engines you know" src="http://www.gomage.com/media/magentoconnect_image/feed_pro.png" alt="GoMage Feed Pro" /></a> <a href="http://www.gomage.com/extensions/gomage-advanced-navigation.html"><img title="GoMage Advanced Navigation - helps you to optimize and improve navigation on your site" src="http://www.gomage.com/media/magentoconnect_image/advanced_navigation.png" alt="GoMage Advanced Navigation" /></a> <a href="http://www.gomage.com/extensions/promo.html"><img title="GoMage Ads &amp; Promo - simple, flexible, yet powerful solution for advertising and promoting your products" src="http://www.gomage.com/media/magentoconnect_image/ads_and_promo.png" alt="GoMage Ads &amp; Promo" /></a> <a href="http://www.gomage.com/extensions/procart.html"><img title="GoMage ProCart - allows your customers to add products to cart without page reloading or redirecting" src="http://www.gomage.com/media/magentoconnect_image/procart.png" alt="GoMage ProCart" /></a> <a href="http://www.gomage.com/extensions/gomage-sales-and-deals.html"><img title="GoMage Sales and Deals extension is all about providing the best deals for your customers" src="http://www.gomage.com/media/magentoconnect_image/sales_and_deals.png" alt="GoMage Sales and Deals" /></a></p>]]>
+					<![CDATA[<h2>GoMage Extensions</h2>
+<p><a href="http://www.gomage.com/extensions/gomage-lightcheckout.html"><img title="GoMage LightCheckout - only one step on the checkout page" src="http://www.gomage.com/media/magentoconnect_image/lightcheckout.png" alt="GoMage LightCheckout" /></a> <a href="http://www.gomage.com/extensions/gomage-feed-pro.html"><img title="GoMage Feed Pro - send your product data to all Search Engines you know" src="http://www.gomage.com/media/magentoconnect_image/feed_pro.png" alt="GoMage Feed Pro" /></a> <a href="http://www.gomage.com/extensions/gomage-advanced-navigation.html"><img title="GoMage Advanced Navigation - helps you to optimize and improve navigation on your site" src="http://www.gomage.com/media/magentoconnect_image/advanced_navigation.png" alt="GoMage Advanced Navigation" /></a> <a href="http://www.gomage.com/extensions/promo.html"><img title="GoMage Ads &amp; Promo - simple, flexible, yet powerful solution for advertising and promoting your products" src="http://www.gomage.com/media/magentoconnect_image/ads_and_promo.png" alt="GoMage Ads &amp; Promo" /></a> <a href="http://www.gomage.com/extensions/procart.html"><img title="GoMage ProCart - allows your customers to add products to cart without page reloading or redirecting" src="http://www.gomage.com/media/magentoconnect_image/procart.png" alt="GoMage ProCart" /></a> <a href="http://www.gomage.com/extensions/gomage-sales-and-deals.html"><img title="GoMage Sales and Deals extension is all about providing the best deals for your customers" src="http://www.gomage.com/media/magentoconnect_image/sales_and_deals.png" alt="GoMage Sales and Deals" /></a> <a href="https://www.gomage.com/extensions/gomage-product-designer.html"><img title="GoMage Product Designer the superior extension for Magento which will help you to personalize the products using, cliparts, texts and uploading images" src="https://www.gomage.com/media/magentoconnect_image/product_designer.png" alt="GoMage Product Designer" /></a> <a href="https://www.gomage. com/extensions/gomage-seo-booster.html"><img title="The GoMage SEO Booster extension helps you improve the search engine optimization and the visibility of your store in the search engines' results without any technical knowledge" src="http://www.gomage.com/media/magentoconnect_image/seo_booster.png" alt="GoMage SEO Booster" /></a></p>]]>
 				</text>
 			</information>
 		</gomage_social>
