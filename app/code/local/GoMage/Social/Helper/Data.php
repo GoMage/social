@@ -159,7 +159,7 @@ class GoMage_Social_Helper_Data extends Mage_Core_Helper_Abstract {
 	        $ch = curl_init();
 	        curl_setopt($ch, CURLOPT_URL, sprintf('https://www.gomage.com/index.php/gomage_notification/index/data'));
 	        curl_setopt($ch, CURLOPT_POST, true);
-	        curl_setopt($ch, CURLOPT_POSTFIELDS, 'sku=social-connector&timestamp=' . $timestamp . '&ver=' . urlencode('1.0'));
+	        curl_setopt($ch, CURLOPT_POSTFIELDS, 'sku=social-connector&timestamp=' . $timestamp . '&ver=' . urlencode('1.2'));
 	        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
 	        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);     
 	        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
