@@ -58,9 +58,8 @@ class GoMage_Social_FacebookController extends GoMage_Social_Controller_Social {
         		 $this->getSession()->loginById($customer->getId()); 
         	} else {
 	        	try {
-					$profile = $facebook->api('/me');
-				}
-				catch (FacebookApiException $e) {
+					$profile = $facebook->api('/me?fields=email,first_name,last_name');
+				} catch (FacebookApiException $e) {
 					$this->getSession()->addError($e->__toString());
 					$profile = null;
 				}
