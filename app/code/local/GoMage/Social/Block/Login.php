@@ -65,12 +65,20 @@ class GoMage_Social_Block_Login extends Mage_Core_Block_Template {
 		return Mage::getStoreConfig('gomage_social/'. $service .'/' . $this->getPlace() . '_type');
 	}
 
-    public function getServiceBlock($type,  $is_last) {
-		$service	= GoMage_Social_Model_Type::getTypeService($type);	
-		$block		= $this->getLayout()->createBlock('gomage_social/login_' . $service);
+    public function getServiceBlock($type,  $is_last) 
+	{
+		$service = GoMage_Social_Model_Type::getTypeService($type);	
+		
+		switch ($service) {
+			case 'facebook' :
+			case 'google' :
+				$block = $this->getLayout()->createBlock('gomage_social/login_' . $service);
+				break;
+			default : $block = $this->getLayout()->createBlock('gomage_social/login_service');		
+		}
 		
 		if (!$block) {
-			$block = $this->getLayout()->createBlock('gomage_social/login_service');
+			throw new Exception(__CLASS__ . ": line " . __LINE__);
 		}		
 		
 		return $block->setData('is_last', $is_last)
