@@ -11,7 +11,16 @@
  * @since        Class available since Release 1.2.0
  */ 
  
-class GoMage_Instagram_Credentials extends GoMage_OAuth_Credentials
-{
-	
+class GoMage_OAuth_Credentials extends Varien_Object 
+{	
+	public function _construct() 
+	{
+		if (!$this->getClientId()) {
+			throw new Exception('client_id is required');
+		} else if (!$this->getClientSecret()) {
+			throw new Exception('client_secret is required');
+		} else if (!$this->getRedirectUri()) {
+			throw new Exception('redirect_uri is required');
+		}
+    }
 }

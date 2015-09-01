@@ -8,7 +8,7 @@
  * @author       GoMage
  * @license      http://www.gomage.com/license-agreement/  Single domain license
  * @terms of use http://www.gomage.com/terms-of-use
- * @version      Release: 1.2.0
+ * @version      Release: 1.4.0
  * @since        Class available since Release 1.2.0
  */
 class GoMage_Social_InstagramController extends GoMage_Social_Controller_SocialNoMail
@@ -117,7 +117,7 @@ class GoMage_Social_InstagramController extends GoMage_Social_Controller_SocialN
 					}
                 }
 				
-                return $this->_redirectUrl(Mage::getUrl('', array('_secure' => true)));
+                return $this->_redirectUrl();
             } else {
                 $this->getSession()
                      ->addError($this->__('Could not connect to Instagram. Refresh the page or try again later.'));
