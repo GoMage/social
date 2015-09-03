@@ -23,8 +23,8 @@ class GoMage_Social_InstagramController extends GoMage_Social_Controller_SocialN
 	public function getCredentials()
     {
         if (!$this->credentials) {
-            $redirect_uri      = Mage::getUrl('gomage_social/instagram/callback', array('_secure' => true));
-            $this->credentials = new GoMage_Instagram_Credentials(array(
+            $redirect_uri		= Mage::getUrl('gomage_social/instagram/callback', array('_secure' => true));
+            $this->credentials	= new GoMage_Instagram_Credentials(array(
                 'client_id'     => Mage::getStoreConfig('gomage_social/instagram/id'),
                 'client_secret' => Mage::getStoreConfig('gomage_social/instagram/secret'),
                 'redirect_uri'  => $redirect_uri,
@@ -41,13 +41,28 @@ class GoMage_Social_InstagramController extends GoMage_Social_Controller_SocialN
                 return $this->_redirectUrl();
             }
 			
-            $service      = new GoMage_Instagram_Service($this->getCredentials());
-            $redirect_url = $service->getAuthorizationUrl(array('scope' => 'basic'));
+            $service		= new GoMage_Instagram_Service($this->getCredentials());
+            $redirect_url	= $service->getAuthorizationUrl(array('scope' => 'basic'));
+			
+			$url_backward	=
+				($this->getRequest()->getParam('gs_url', ''))
+					? Mage::helper('core')->urlDecode($this->getRequest()->getParam('gs_url'))
+						: Mage::getBaseUrl();
+							
+			$_profile		= array(
+				'url_backward'		=> $url_backward,
+				'url_check_email'	=> Mage::getUrl('gomage_social/instagram/checkEmail', array('_secure' => Mage::helper('gomage_social/url')->isSecure($url_backward))),
+				'url_email_close'	=> Mage::getUrl('gomage_social/instagram/emailClose', array('_secure' => Mage::helper('gomage_social/url')->isSecure($url_backward))),
+				'type_id'			=> $this->getSocialType()
+			);
+			
+			Mage::getSingleton('core/session')->setGsProfile((object) $_profile);	
         } catch (Exception $e) {
             $this->getSession()->addError($this->__($e->getMessage()));
-        }
-
-        return $this->_redirectUrl($redirect_url);
+			$redirect_url = null;
+        } 
+		
+		return $this->_redirectUrl($redirect_url);  
     }
 
     public function callbackAction() 
@@ -67,6 +82,7 @@ class GoMage_Social_InstagramController extends GoMage_Social_Controller_SocialN
             $oauth_token	= $service->requestToken();
 			
             if ($oauth_token->getAccessToken()) {
+				Mage::getSingleton('core/session')->setData('oauth_token', $oauth_token);
                 $service->getCredentials()->setData('oauth_token', $oauth_token);
                 
 				$profile = new Varien_Object($service->requestUserProfile()->getData('data'));
@@ -102,32 +118,23 @@ class GoMage_Social_InstagramController extends GoMage_Social_Controller_SocialN
 							}
 						}
 					}  else {
-						
-						$_profile = array(
+						$_profile = array_merge((array) Mage::getSingleton('core/session')->getGsProfile(), array(
 							'id'			=> $profile->getData('id'),
 							'name'			=> $profile->getData('username') . ' ' . $profile->getData('username'),
 							'first_name'	=> $profile->getData('username'),
 							'last_name'		=> $profile->getData('username'),
-							'url'			=> Mage::getUrl('gomage_social/instagram/checkEmail', array('_secure' => true)),
-							'urlEmailClose'	=> Mage::getUrl('gomage_social/instagram/emailClose', array('_secure' => true)),
-							'type_id'		=> $this->getSocialType()
-						);
+						));
 						
 						Mage::getSingleton('core/session')->setGsProfile((object) $_profile);
 					}
                 }
-				
-                return $this->_redirectUrl();
             } else {
-                $this->getSession()
-                     ->addError($this->__('Could not connect to Instagram. Refresh the page or try again later.'));
-
-                return $this->_redirectUrl();
+                $this->getSession()->addError($this->__('Could not connect to Instagram. Refresh the page or try again later.'));
             }
         } catch (Exception $e) {
-            $this->getSession()->addError($this->__($e->getMessage()));
-
-            return $this->_redirectUrl();
-        }        
+            $this->getSession()->addError($this->__($e->getMessage())); 
+        }  
+		
+		return $this->_redirectUrl();      
     }
 }

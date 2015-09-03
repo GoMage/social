@@ -13,14 +13,15 @@
 
 require_once (Mage::getBaseDir('lib') . DS . 'GoMage' . DS . 'Facebook' . DS . 'facebook.php');
 
-class GoMage_Social_FacebookController extends GoMage_Social_Controller_Social {
-	
-	public function getSocialType(){
+class GoMage_Social_FacebookController extends GoMage_Social_Controller_Social 
+{
+	public function getSocialType()
+	{
 		return GoMage_Social_Model_Type::FACEBOOK;
 	}
 	
-	public function loginAction() {
-		
+	public function loginAction() 
+	{
 		if ($this->getSession()->isLoggedIn()){
 			return $this->_redirectUrl();
 		}
@@ -32,8 +33,7 @@ class GoMage_Social_FacebookController extends GoMage_Social_Controller_Social {
 		
 		$social_id = $facebook->getUser();
 		
-		if ($social_id) {
-			
+		if ($social_id) {			
 			$social_collection = Mage::getModel('gomage_social/entity')
 									->getCollection()
 									->addFieldToFilter('social_id', $social_id)
@@ -42,15 +42,17 @@ class GoMage_Social_FacebookController extends GoMage_Social_Controller_Social {
 			if(Mage::getSingleton('customer/config_share')->isWebsiteScope()) {
             	$social_collection->addFieldToFilter('website_id', Mage::app()->getWebsite()->getId());
         	} 
-        	$social = $social_collection->getFirstItem();
-        	
-        	$customer = null;
 			
-        	if ($social && $social->getId()){
+        	$social		= $social_collection->getFirstItem();
+       		$customer	= null;
+			
+        	if ($social && $social->getId()) {
         		$customer = Mage::getModel('customer/customer');
-	        	if (Mage::getSingleton('customer/config_share')->isWebsiteScope()) {
+	        	
+				if (Mage::getSingleton('customer/config_share')->isWebsiteScope()) {
 					$customer->setWebsiteId(Mage::app()->getWebsite()->getId());
 				}
+				
         		$customer->load($social->getData('customer_id'));
         	}
 
@@ -64,28 +66,31 @@ class GoMage_Social_FacebookController extends GoMage_Social_Controller_Social {
 					$profile = null;
 				}
 				
-				if (! is_null($profile)){
+				if (!is_null($profile)){
 					$customer = Mage::getModel('customer/customer');
 					if (Mage::getSingleton('customer/config_share')->isWebsiteScope()) {
 						$customer->setWebsiteId(Mage::app()->getWebsite()->getId());
 					}
+					
 					$customer->loadByEmail($profile['email']);
 					
 					if (!$customer->getId()){
 						$customer = $this->createCustomer($profile);
-					}					
+					}
+										
 					if ($customer && $customer->getId()){						
 						$this->createSocial($profile['id'], $customer->getId());							
 						$this->getSession()->loginById($customer->getId());
 					}
 				}
-				
         	}
-
 		}
 		
-		return $this->_redirectUrl();
-
-	}
-	
+		$url_backward	=
+				($this->getRequest()->getParam('gs_url', ''))
+					? Mage::helper('core')->urlDecode($this->getRequest()->getParam('gs_url'))
+						: Mage::getBaseUrl();
+		
+		return $this->_redirectUrl($url_backward);
+	}	
 }
