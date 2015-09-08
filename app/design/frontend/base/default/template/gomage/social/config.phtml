@@ -163,8 +163,8 @@
 <?php 
 	if (
 		Mage::getSingleton('core/session')->getGsProfile() && 
-		Mage::getSingleton('core/session')->getGsProfile()->id &&
-		Mage::getSingleton('core/session')->getGsProfile()->url_check_email
+		isset(Mage::getSingleton('core/session')->getGsProfile()->id) &&
+		isset(Mage::getSingleton('core/session')->getGsProfile()->url_check_email)
 	) : 
 ?>
 	<script type="text/javascript">
